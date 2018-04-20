@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">bio-organic</string>
+    <string name="app_name">Bio Organic</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Elshad Seyidmammadov</string>
+    <string name="nav_header_subtitle">elshadsm@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_shopping_cart">Shopping Cart</string>
 </resources>
