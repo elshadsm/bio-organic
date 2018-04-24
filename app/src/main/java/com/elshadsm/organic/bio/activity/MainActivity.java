@@ -1,5 +1,7 @@
 package com.elshadsm.organic.bio.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.CategoryViewAdapter;
@@ -46,6 +50,18 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        final Context context = this;
+        findViewById(R.id.search_input).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEvent.ACTION_UP == event.getAction()) {
+                    Intent intent = new Intent(context, ProductSearchActivity.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -76,13 +92,19 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_home: break;
-            case R.id.nav_my_account: break;
-            case R.id.nav_shopping_cart: break;
-            case R.id.nav_my_favorites: break;
-            case R.id.nav_share: break;
-            case R.id.nav_logout: break;
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                break;
+            case R.id.nav_my_account:
+                break;
+            case R.id.nav_shopping_cart:
+                break;
+            case R.id.nav_my_favorites:
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_logout:
+                break;
 
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

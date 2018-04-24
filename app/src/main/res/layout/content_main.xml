@@ -12,7 +12,7 @@
         android:id="@+id/category_views_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:layout_margin="4dp" />
+        android:layout_margin="4dp"
+        android:clipToPadding="false" />
 
 </FrameLayout>
