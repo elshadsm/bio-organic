@@ -1,4 +1,4 @@
-package com.elshadsm.organic.bio.activity;
+package com.elshadsm.organic.bio.activities;
 
 import android.app.SearchManager;
 import android.content.Context;

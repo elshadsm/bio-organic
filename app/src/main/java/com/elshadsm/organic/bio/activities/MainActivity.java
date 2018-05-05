@@ -1,4 +1,4 @@
-package com.elshadsm.organic.bio.activity;
+package com.elshadsm.organic.bio.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,8 @@ import android.view.View;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.CategoryViewAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +30,15 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.category_views_recycler_view)
     RecyclerView recyclerView;
 
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("products");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

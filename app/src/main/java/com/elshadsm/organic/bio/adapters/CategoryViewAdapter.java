@@ -1,6 +1,7 @@
 package com.elshadsm.organic.bio.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
+import com.elshadsm.organic.bio.activities.ProductListActivity;
 import com.elshadsm.organic.bio.models.CategoryView;
 
 import java.util.ArrayList;
@@ -16,17 +18,19 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.elshadsm.organic.bio.models.Constants.CATEGORY_EXTRA_NAME;
+
 public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapter.RecyclerViewHolder> {
 
     private ArrayList<CategoryView> categoryViewList = new ArrayList<>();
 
     public CategoryViewAdapter() {
-        categoryViewList.add(new CategoryView(R.drawable.ic_food, "Foods"));
-        categoryViewList.add(new CategoryView(R.drawable.ic_spice, "Spices"));
-        categoryViewList.add(new CategoryView(R.drawable.ic_medication, "Medication"));
-        categoryViewList.add(new CategoryView(R.drawable.ic_beauty, "Beauty"));
-        categoryViewList.add(new CategoryView(R.drawable.ic_home, "Home"));
-        categoryViewList.add(new CategoryView(R.drawable.ic_others, "Others"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_food, "Foods", "foods"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_spice, "Spices", "spices"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_medication, "Medication", "medication"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_beauty, "Beauty", "beauty"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_home, "Home", "home"));
+        categoryViewList.add(new CategoryView(R.drawable.ic_others, "Others", "others"));
         notifyDataSetChanged();
     }
 
@@ -63,9 +67,12 @@ public class CategoryViewAdapter extends RecyclerView.Adapter<CategoryViewAdapte
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(View view) {
+            Context context = view.getContext();
             int clickedPosition = getAdapterPosition();
-            // ***
+            Intent intent = new Intent( context, ProductListActivity.class);
+            intent.putExtra(CATEGORY_EXTRA_NAME, categoryViewList.get(clickedPosition));
+            context.startActivity(intent);
         }
     }
 }
