@@ -43,6 +43,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
+        <activity android:name=".activities.ProductDetailsActivity" />
+        <provider
+            android:name=".data.DataProvider"
+            android:authorities="@string/data_content_authority"
+            android:exported="false" />
     </application>
 
 </manifest>

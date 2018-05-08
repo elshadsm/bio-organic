@@ -29,4 +29,9 @@
         <item name="android:fontFamily">"sans-serif-normal"</item>
     </style>
 
+    <style name="Review.Body" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-thin"</item>
+    </style>
+
 </resources>

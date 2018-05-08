@@ -227,7 +227,7 @@ public class ProductListActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.product_list_activity_menu, menu);
+        getMenuInflater().inflate(R.menu.product_menu, menu);
         return true;
     }
 

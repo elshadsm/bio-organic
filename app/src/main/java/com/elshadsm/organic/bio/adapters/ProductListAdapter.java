@@ -1,6 +1,7 @@
 package com.elshadsm.organic.bio.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
+import com.elshadsm.organic.bio.activities.ProductDetailsActivity;
 import com.elshadsm.organic.bio.models.Product;
 import com.squareup.picasso.Picasso;
 
@@ -17,6 +19,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.elshadsm.organic.bio.models.Constants.PRODUCT_EXTRA_NAME;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.RecyclerViewHolder> {
 
@@ -76,6 +80,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         public void onClick(View view) {
             Context context = view.getContext();
             int clickedPosition = getAdapterPosition();
+            Intent intent = new Intent( context, ProductDetailsActivity.class);
+            intent.putExtra(PRODUCT_EXTRA_NAME, productList.get(clickedPosition));
+            context.startActivity(intent);
         }
     }
 }

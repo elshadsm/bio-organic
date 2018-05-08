@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#FFFFFF</color>
+
+    <color name="primary_text_color">#424242</color>
+    <color name="product_details_review_container_background">#eeeeee</color>
 </resources>
