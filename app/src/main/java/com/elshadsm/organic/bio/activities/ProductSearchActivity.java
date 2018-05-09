@@ -2,6 +2,7 @@ package com.elshadsm.organic.bio.activities;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +14,9 @@ import android.view.MenuItem;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.ProductSearchAdapter;
-import com.elshadsm.organic.bio.models.ProductSearchResult;
+import com.elshadsm.organic.bio.models.Product;
+
+import static com.elshadsm.organic.bio.models.Constants.PRODUCT_EXTRA_NAME;
 
 public class ProductSearchActivity extends AppCompatActivity implements ProductSearchAdapter.ProductSearchAdapterListener {
 
@@ -83,7 +86,10 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
     }
 
     @Override
-    public void onProductSelected(ProductSearchResult contact) {
-
+    public void onProductSelected(Product product) {
+        Intent intent = new Intent( this, ProductDetailsActivity.class);
+        intent.putExtra(PRODUCT_EXTRA_NAME, product);
+        startActivity(intent);
+        finish();
     }
 }
