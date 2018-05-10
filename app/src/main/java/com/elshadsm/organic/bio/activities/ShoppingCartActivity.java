@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
@@ -30,6 +31,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     @BindView(R.id.shopping_cart_total_amount)
     TextView totalAmountTextView;
+    @BindView(R.id.shopping_cart_empty_view)
+    TextView emptyView;
 
     private ShoppingCartAdapter shoppingCartAdapter;
     private List<Product> productList = new ArrayList<>();
@@ -49,6 +52,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
         fetchProducts();
         shoppingCartAdapter.setData(productList);
         totalAmountTextView.setText(String.format("%s $", totalAmount));
+        if (productList.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+            return;
+        }
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
     }
 
     @Override

@@ -23,6 +23,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.ProductListAdapter;
@@ -63,6 +64,8 @@ public class ProductListActivity extends AppCompatActivity {
     ConstraintLayout filterActionView;
     @BindView(R.id.product_list_recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.product_list_empty_view)
+    TextView emptyView;
     @BindView(R.id.lowest_price_check_box)
     CheckBox lowestPriceCheckBox;
     @BindView(R.id.highest_price_check_box)
@@ -332,6 +335,13 @@ public class ProductListActivity extends AppCompatActivity {
                     }
                     sortProductList(productList, type);
                     productListAdapter.setData(productList);
+                    if (productList.isEmpty()) {
+                        recyclerView.setVisibility(View.GONE);
+                        emptyView.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                    recyclerView.setVisibility(View.VISIBLE);
+                    emptyView.setVisibility(View.GONE);
                 }
             }
 

@@ -12,5 +12,7 @@
     <string name="action_shopping_cart">Shopping Cart</string>
     <string name="data_content_authority">com.elshadsm.organic.bio</string>
 
-    <string name="favorite_list_empty_view">You don\'t have favorite products</string>
+    <string name="favorite_list_empty_view">Your favorite list is empty</string>
+    <string name="shopping_cart_empty_view">Your shopping cart is empty</string>
+    <string name="product_list_empty_view">There are no products under this category</string>
 </resources>

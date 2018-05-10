@@ -47,12 +47,12 @@ public class FavoriteListActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         fetchProducts();
+        favoriteListAdapter.setData(productList);
         if (productList.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             emptyView.setVisibility(View.VISIBLE);
             return;
         }
-        favoriteListAdapter.setData(productList);
         recyclerView.setVisibility(View.VISIBLE);
         emptyView.setVisibility(View.GONE);
     }
