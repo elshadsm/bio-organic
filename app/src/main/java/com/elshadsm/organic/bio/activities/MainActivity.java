@@ -98,22 +98,24 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.nav_home:
                 break;
             case R.id.nav_my_account:
                 break;
             case R.id.nav_shopping_cart:
-                Intent intent = new Intent(this, ShoppingCartActivity.class);
+                intent = new Intent(this, ShoppingCartActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_my_favorites:
+                intent = new Intent(this, FavoriteListActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_share:
                 break;
             case R.id.nav_logout:
                 break;
-
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

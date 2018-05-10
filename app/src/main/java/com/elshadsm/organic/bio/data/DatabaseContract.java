@@ -13,6 +13,7 @@ public class DatabaseContract {
     static final String PATH_FAVORITES = "favorites";
     static final String PATH_SHOPPING_CART = "shopping_cart";
     static final String PATH_PRODUCTS_IN_SHOPPING_CART = "products_in_shopping_cart";
+    static final String PATH_PRODUCTS_IN_FAVORITE_LIST = "products_in_favorite_list";
 
     public static final class ProductEntry implements BaseColumns {
 
@@ -70,19 +71,40 @@ public class DatabaseContract {
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_PRODUCTS_IN_SHOPPING_CART).build();
 
         public static final String RAW_SQL = "SELECT " +
-                DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID + ", " +
-                DatabaseContract.ProductEntry.COLUMN_CATEGORY + ", " +
-                DatabaseContract.ProductEntry.COLUMN_DESCRIPTION + ", " +
-                DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC + ", " +
-                DatabaseContract.ProductEntry.COLUMN_INSERTION_DATE + ", " +
-                DatabaseContract.ProductEntry.COLUMN_NAME + ", " +
-                DatabaseContract.ProductEntry.COLUMN_PRICE + ", " +
-                DatabaseContract.ProductEntry.COLUMN_QUANTITY + ", " +
-                DatabaseContract.ProductEntry.COLUMN_RATING + ", " +
-                DatabaseContract.ProductEntry.COLUMN_STATUS + ", " +
-                DatabaseContract.ProductEntry.COLUMN_TITLE + " " +
-                " FROM " + ProductEntry.TABLE_NAME + ", " + ShoppingCartEntry.TABLE_NAME+
-                " WHERE " + DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID + "="+ShoppingCartEntry.COLUMN_PRODUCT_ID;
+                ProductEntry.COLUMN_PRODUCT_ID + ", " +
+                ProductEntry.COLUMN_CATEGORY + ", " +
+                ProductEntry.COLUMN_DESCRIPTION + ", " +
+                ProductEntry.COLUMN_IMAGE_SRC + ", " +
+                ProductEntry.COLUMN_INSERTION_DATE + ", " +
+                ProductEntry.COLUMN_NAME + ", " +
+                ProductEntry.COLUMN_PRICE + ", " +
+                ProductEntry.COLUMN_QUANTITY + ", " +
+                ProductEntry.COLUMN_RATING + ", " +
+                ProductEntry.COLUMN_STATUS + ", " +
+                ProductEntry.COLUMN_TITLE + " " +
+                " FROM " + ProductEntry.TABLE_NAME + ", " + ShoppingCartEntry.TABLE_NAME +
+                " WHERE " + ProductEntry.COLUMN_PRODUCT_ID + "=" + ShoppingCartEntry.COLUMN_PRODUCT_ID;
+    }
+
+    public static final class ProductsInFavoriteListEntry implements BaseColumns {
+
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_PRODUCTS_IN_FAVORITE_LIST).build();
+
+        public static final String RAW_SQL = "SELECT " +
+                ProductEntry.COLUMN_PRODUCT_ID + ", " +
+                ProductEntry.COLUMN_CATEGORY + ", " +
+                ProductEntry.COLUMN_DESCRIPTION + ", " +
+                ProductEntry.COLUMN_IMAGE_SRC + ", " +
+                ProductEntry.COLUMN_INSERTION_DATE + ", " +
+                ProductEntry.COLUMN_NAME + ", " +
+                ProductEntry.COLUMN_PRICE + ", " +
+                ProductEntry.COLUMN_QUANTITY + ", " +
+                ProductEntry.COLUMN_RATING + ", " +
+                ProductEntry.COLUMN_STATUS + ", " +
+                ProductEntry.COLUMN_TITLE + " " +
+                " FROM " + ProductEntry.TABLE_NAME + ", " + FavoriteEntry.TABLE_NAME +
+                " WHERE " + ProductEntry.COLUMN_PRODUCT_ID + "=" + FavoriteEntry.COLUMN_PRODUCT_ID;
     }
 
 }

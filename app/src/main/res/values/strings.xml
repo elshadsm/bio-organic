@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Bio Organic</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_shopping_cart">Shopping Cart</string>
+    <string name="title_activity_favorite_list">My Favorites</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Elshad Seyidmammadov</string>
@@ -8,4 +11,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_shopping_cart">Shopping Cart</string>
     <string name="data_content_authority">com.elshadsm.organic.bio</string>
+
+    <string name="favorite_list_empty_view">You don\'t have favorite products</string>
 </resources>

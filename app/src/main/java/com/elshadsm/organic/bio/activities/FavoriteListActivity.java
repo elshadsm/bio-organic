@@ -8,10 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
-import com.elshadsm.organic.bio.adapters.ShoppingCartAdapter;
+import com.elshadsm.organic.bio.adapters.FavoriteListAdapter;
 import com.elshadsm.organic.bio.data.DatabaseContract;
 import com.elshadsm.organic.bio.models.Product;
 import com.elshadsm.organic.bio.models.Review;
@@ -24,21 +25,20 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ShoppingCartActivity extends AppCompatActivity {
+public class FavoriteListActivity extends AppCompatActivity {
 
-    @BindView(R.id.shopping_cart_recycler_view)
+    @BindView(R.id.favorite_list_recycler_view)
     RecyclerView recyclerView;
-    @BindView(R.id.shopping_cart_total_amount)
-    TextView totalAmountTextView;
+    @BindView(R.id.favorite_list_empty_view)
+    TextView emptyView;
 
-    private ShoppingCartAdapter shoppingCartAdapter;
+    private FavoriteListAdapter favoriteListAdapter;
     private List<Product> productList = new ArrayList<>();
-    private float totalAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping_cart);
+        setContentView(R.layout.activity_favorite_list);
         ButterKnife.bind(this);
         applyConfiguration();
     }
@@ -47,8 +47,14 @@ public class ShoppingCartActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         fetchProducts();
-        shoppingCartAdapter.setData(productList);
-        totalAmountTextView.setText(String.format("%s $", totalAmount));
+        if (productList.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+            return;
+        }
+        favoriteListAdapter.setData(productList);
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
     }
 
     @Override
@@ -74,8 +80,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private void applyConfiguration() {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        shoppingCartAdapter = new ShoppingCartAdapter();
-        recyclerView.setAdapter(shoppingCartAdapter);
+        favoriteListAdapter = new FavoriteListAdapter();
+        recyclerView.setAdapter(favoriteListAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
     }
@@ -83,14 +89,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private void fetchProducts() {
         productList = new ArrayList<>();
         try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.ProductsInShoppingCartEntry.CONTENT_URI,
+                DatabaseContract.ProductsInFavoriteListEntry.CONTENT_URI,
                 null, null, null, null)) {
             if (cursor == null || cursor.getCount() == 0) {
                 return;
             }
             cursor.moveToFirst();
             Product product;
-            totalAmount = 0.0f;
             do {
                 product = new Product();
                 product.setId(cursor.getLong(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID)));
@@ -104,7 +109,6 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 product.setStatus(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_STATUS)));
                 product.setTitle(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_TITLE)));
                 product.setReviews(fetchReviews(product.getId()));
-                totalAmount += product.getPrice();
                 productList.add(product);
             } while (cursor.moveToNext());
         }
@@ -142,5 +146,4 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID
         };
     }
-
 }
