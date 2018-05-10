@@ -117,6 +117,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         ratingBar.setRating(product.getRating());
         price.setText(String.format("%s $", product.getPrice()));
         title.setText(product.getTitle());
+        addShoppingCart.setImageResource(isProductExistInShoppingCart() ?
+                R.drawable.ic_remove_from_shopping_cart : R.drawable.ic_add_to_shopping_cart);
         description.setText(product.getDescription());
         setReviews();
     }
@@ -135,7 +137,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
         addShoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isProductExistInShoppingCart()) {
+                    removeProductFromShoppingCart();
+                    addShoppingCart.setImageResource(R.drawable.ic_add_to_shopping_cart);
+                    return;
+                }
                 addProductToShoppingCart();
+                addShoppingCart.setImageResource(R.drawable.ic_remove_from_shopping_cart);
             }
         });
     }
@@ -185,17 +193,32 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void insertProductToDb() {
-        ContentValues productContentValues = new ContentValues();
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID, product.getId());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.getCategory());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION, product.getDescription());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC, product.getImageSrc());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_INSERTION_DATE, product.getInsertionDate());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_NAME, product.getName());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_PRICE, product.getPrice());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_RATING, product.getRating());
-        productContentValues.put(DatabaseContract.ProductEntry.COLUMN_TITLE, product.getTitle());
-        getContentResolver().insert(DatabaseContract.ProductEntry.CONTENT_URI, productContentValues);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID, product.getId());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.getCategory());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION, product.getDescription());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC, product.getImageSrc());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_INSERTION_DATE, product.getInsertionDate());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_NAME, product.getName());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_PRICE, product.getPrice());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_QUANTITY, product.getQuantity());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_RATING, product.getRating());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_STATUS, product.getStatus());
+        contentValues.put(DatabaseContract.ProductEntry.COLUMN_TITLE, product.getTitle());
+        for (Map.Entry<String, Review> entry : product.getReviews().entrySet()) {
+            insertReviewToDb(entry.getValue());
+        }
+        getContentResolver().insert(DatabaseContract.ProductEntry.CONTENT_URI, contentValues);
+    }
+
+    private void insertReviewToDb(Review review) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_REVIEW_ID, review.getId());
+        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_DATE, review.getDate());
+        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_REVIEW, review.getReview());
+        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_FULL_NAME, review.getFullName());
+        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID, product.getId());
+        getContentResolver().insert(DatabaseContract.ReviewEntry.CONTENT_URI, contentValues);
     }
 
     private void removeProductFromFavoriteList() {
@@ -213,6 +236,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
             shoppingCartContentValues.put(DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID, product.getId());
             getContentResolver().insert(DatabaseContract.ShoppingCartEntry.CONTENT_URI, shoppingCartContentValues);
         }
+    }
+
+    private void removeProductFromShoppingCart() {
+        String selection = DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID + "=?";
+        String[] selectionArgs = {String.valueOf(product.getId())};
+        getContentResolver().delete(DatabaseContract.ShoppingCartEntry.CONTENT_URI, selection, selectionArgs);
     }
 
     private boolean isProductExistInShoppingCart() {

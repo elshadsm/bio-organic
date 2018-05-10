@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "products.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,7 +33,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         DatabaseContract.ProductEntry.COLUMN_INSERTION_DATE + " TEXT NOT NULL," +
                         DatabaseContract.ProductEntry.COLUMN_NAME + " TEXT NOT NULL," +
                         DatabaseContract.ProductEntry.COLUMN_PRICE + " REAL NOT NULL," +
+                        DatabaseContract.ProductEntry.COLUMN_QUANTITY + " TEXT NOT NULL," +
                         DatabaseContract.ProductEntry.COLUMN_RATING + " REAL NOT NULL," +
+                        DatabaseContract.ProductEntry.COLUMN_STATUS + " TEXT NOT NULL," +
                         DatabaseContract.ProductEntry.COLUMN_TITLE + " TEXT NOT NULL" +
                         ");"
         );

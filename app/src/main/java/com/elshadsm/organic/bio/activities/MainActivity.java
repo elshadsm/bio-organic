@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_my_account:
                 break;
             case R.id.nav_shopping_cart:
+                Intent intent = new Intent(this, ShoppingCartActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_my_favorites:
                 break;
@@ -115,6 +117,6 @@ public class MainActivity extends AppCompatActivity
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return false;
     }
 }

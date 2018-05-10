@@ -44,10 +44,13 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity android:name=".activities.ProductDetailsActivity" />
+
         <provider
             android:name=".data.DataProvider"
             android:authorities="@string/data_content_authority"
             android:exported="false" />
+
+        <activity android:name=".activities.ShoppingCartActivity"></activity>
     </application>
 
 </manifest>

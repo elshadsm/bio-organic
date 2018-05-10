@@ -15,8 +15,10 @@ public class Product implements Parcelable {
     public String insertionDate;
     public String name;
     public float price;
+    public String quantity;
     public float rating;
     public Map<String, Review> reviews = new HashMap<>();
+    public String status;
     public String title;
 
     public Product() {
@@ -31,7 +33,9 @@ public class Product implements Parcelable {
         insertionDate = in.readString();
         name = in.readString();
         price = in.readFloat();
+        quantity = in.readString();
         rating = in.readFloat();
+        status = in.readString();
         title = in.readString();
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
@@ -67,7 +71,9 @@ public class Product implements Parcelable {
         dest.writeString(insertionDate);
         dest.writeString(name);
         dest.writeFloat(price);
+        dest.writeString(quantity);
         dest.writeFloat(rating);
+        dest.writeString(status);
         dest.writeString(title);
         dest.writeInt(reviews.size());
         for (Map.Entry<String, Review> entry : reviews.entrySet()) {
@@ -132,6 +138,14 @@ public class Product implements Parcelable {
         this.price = price;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public float getRating() {
         return rating;
     }
@@ -146,6 +160,14 @@ public class Product implements Parcelable {
 
     public void setReviews(Map<String, Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getTitle() {
@@ -166,8 +188,10 @@ public class Product implements Parcelable {
                 ", insertionDate='" + insertionDate + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", quantity='" + quantity + '\'' +
                 ", rating=" + rating +
                 ", reviews=" + reviews +
+                ", status='" + status + '\'' +
                 ", title='" + title + '\'' +
                 '}';
     }

@@ -20,6 +20,7 @@ public class DataProvider extends ContentProvider {
     private final static int CODE_REVIEWS = 200;
     private final static int CODE_FAVORITES = 300;
     private final static int CODE_SHOPPING_CART = 400;
+    private final static int CODE_PRODUCTS_IN_SHOPPING_CART = 500;
     private final static UriMatcher uriMatcher = buildUriMatcher();
     private DatabaseHelper dbHelper;
 
@@ -30,6 +31,7 @@ public class DataProvider extends ContentProvider {
         uriMatcher.addURI(DatabaseContract.AUTHORITY, DatabaseContract.PATH_REVIEWS, CODE_REVIEWS);
         uriMatcher.addURI(DatabaseContract.AUTHORITY, DatabaseContract.PATH_FAVORITES, CODE_FAVORITES);
         uriMatcher.addURI(DatabaseContract.AUTHORITY, DatabaseContract.PATH_SHOPPING_CART, CODE_SHOPPING_CART);
+        uriMatcher.addURI(DatabaseContract.AUTHORITY, DatabaseContract.PATH_PRODUCTS_IN_SHOPPING_CART, CODE_PRODUCTS_IN_SHOPPING_CART);
         return uriMatcher;
     }
 
@@ -81,6 +83,9 @@ public class DataProvider extends ContentProvider {
                         null,
                         null,
                         sortOrder);
+                break;
+            case CODE_PRODUCTS_IN_SHOPPING_CART:
+                cursor = database.rawQuery(DatabaseContract.ProductsInShoppingCartEntry.RAW_SQL, null);
                 break;
             default:
                 Log.e(LOG_TAG, "Unknown query uri: " + uri);

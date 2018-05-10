@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_favorite_border_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_remove_shopping_cart_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="e91e63" />
                             <entry key="height" value="36" />
-                            <entry key="outputName" value="ic_unselected_heart" />
+                            <entry key="outputName" value="ic_remove_from_shopping_cart" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\User-2017\Downloads\if_ic_add_shopping_cart_48px_352007.svg" />
                             <entry key="width" value="36" />
