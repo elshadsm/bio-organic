@@ -3,6 +3,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_shopping_cart">Shopping Cart</string>
     <string name="title_activity_favorite_list">My Favorites</string>
+    <string name="title_activity_account_registration">Account Registration</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -12,7 +13,43 @@
     <string name="action_shopping_cart">Shopping Cart</string>
     <string name="data_content_authority">com.elshadsm.organic.bio</string>
 
+    <string name="drawer_menu_sign_up">Sign Up</string>
+    <string name="drawer_menu_logout">Logout</string>
+    <string name="drawer_menu_name_default_value">Name</string>
+    <string name="drawer_menu_surname_default_value">Surname</string>
+    <string name="drawer_menu_email_default_value">email@example.com</string>
+    <string name="drawer_menu_full_name_default_value">Name Surname</string>
+
     <string name="favorite_list_empty_view">Your favorite list is empty</string>
     <string name="shopping_cart_empty_view">Your shopping cart is empty</string>
     <string name="product_list_empty_view">There are no products under this category</string>
+
+    <string name="account_reg_common_label">Start a new account</string>
+    <string name="account_reg_form_name">Name *</string>
+    <string name="account_reg_form_surname">Surname *</string>
+    <string name="account_reg_form_email">Email *</string>
+    <string name="account_reg_form_country">Country *</string>
+    <string name="account_reg_form_city">City *</string>
+    <string name="account_reg_form_state">State *</string>
+    <string name="account_reg_form_postal_code">Postal Code *</string>
+    <string name="account_reg_form_photo">Select your photo</string>
+    <string name="account_reg_form_photo_content_desc">TODO</string>
+    <string name="account_reg_form_button">Start account</string>
+
+    <string name="account_reg_form_name_message">Please input name</string>
+    <string name="account_reg_form_surname_message">Please input surname</string>
+    <string name="account_reg_form_email_message">Please input email</string>
+    <string name="account_reg_form_email_message_correct">Please input correct email</string>
+    <string name="account_reg_form_country_message">Please input country</string>
+    <string name="account_reg_form_city_message">Please input city</string>
+    <string name="account_reg_form_state_message">Please input state</string>
+    <string name="account_reg_form_postal_code_message">Please input postal code</string>
+
+    <string name="permission_denied_message">Permission Denied!</string>
+    <string name="permission_needed_message">Permission Needed</string>
+    <string name="rationale_message">Rationale</string>
+    <string name="please_wait_message">Wait please…</string>
+
+    <string name="image_delete_error_message">"Cannot delete image from local storage"</string>
+
 </resources>

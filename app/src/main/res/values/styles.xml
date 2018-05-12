@@ -34,4 +34,22 @@
         <item name="android:fontFamily">"sans-serif-thin"</item>
     </style>
 
+    <style name="Form.Error.Message" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/form_error_message</item>
+        <item name="android:textColor">@color/utility_red</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Form.Common.Label" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/form_common_label</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Form.Input.Label" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/form_input_label</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
 </resources>

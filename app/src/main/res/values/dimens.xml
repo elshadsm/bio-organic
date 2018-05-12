@@ -12,6 +12,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="category_view_title_size">18sp</dimen>
     <dimen name="product_list_action_text_size">18sp</dimen>
+    <dimen name="form_error_message">12sp</dimen>
+    <dimen name="form_common_label">16sp</dimen>
+    <dimen name="form_input_label">14sp</dimen>
 
     <integer name="grid_view_landscape_column_number">4</integer>
     <integer name="grid_view_portrait_column_number">2</integer>
