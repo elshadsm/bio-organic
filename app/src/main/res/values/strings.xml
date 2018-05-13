@@ -4,6 +4,7 @@
     <string name="title_activity_shopping_cart">Shopping Cart</string>
     <string name="title_activity_favorite_list">My Favorites</string>
     <string name="title_activity_account_registration">Account Registration</string>
+    <string name="title_activity_account">Account</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -50,6 +51,9 @@
     <string name="rationale_message">Rationale</string>
     <string name="please_wait_message">Wait please…</string>
 
-    <string name="image_delete_error_message">"Cannot delete image from local storage"</string>
+    <string name="image_delete_error_message">Cannot delete image from local storage</string>
+
+    <string name="app_share_subject">Share the app</string>
+    <string name="app_share_text">Use Bio-Organic App for the purchase of healthy food.</string>
 
 </resources>

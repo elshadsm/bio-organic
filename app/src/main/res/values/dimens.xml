@@ -15,6 +15,8 @@
     <dimen name="form_error_message">12sp</dimen>
     <dimen name="form_common_label">16sp</dimen>
     <dimen name="form_input_label">14sp</dimen>
+    <dimen name="content_text">16sp</dimen>
+    <dimen name="sub_header">18sp</dimen>
 
     <integer name="grid_view_landscape_column_number">4</integer>
     <integer name="grid_view_portrait_column_number">2</integer>

@@ -52,4 +52,17 @@
         <item name="android:fontFamily">"sans-serif-normal"</item>
     </style>
 
+    <style name="Content.Text" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Sub.Header" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/sub_header</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif"</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

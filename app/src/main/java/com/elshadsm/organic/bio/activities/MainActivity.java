@@ -111,6 +111,13 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_home:
                 break;
             case R.id.nav_my_account:
+                if (isLoggedIn) {
+                    intent = new Intent(this, AccountActivity.class);
+                    startActivity(intent);
+                } else {
+                    intent = new Intent(this, AccountRegistrationActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.nav_shopping_cart:
                 intent = new Intent(this, ShoppingCartActivity.class);
@@ -121,6 +128,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.nav_share:
+                shareApp();
                 break;
             case R.id.nav_sign:
                 if (isLoggedIn) {
@@ -242,5 +250,14 @@ public class MainActivity extends AppCompatActivity
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    private void shareApp() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_share_subject));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.app_share_text));
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 }

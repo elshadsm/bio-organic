@@ -9,4 +9,5 @@
 
     <color name="primary_text_color">#424242</color>
     <color name="product_details_review_container_background">#eeeeee</color>
+    <color name="account_cover_background">#E0E0E0</color>
 </resources>
