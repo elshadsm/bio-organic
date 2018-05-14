@@ -56,4 +56,7 @@
     <string name="app_share_subject">Share the app</string>
     <string name="app_share_text">Use Bio-Organic App for the purchase of healthy food.</string>
 
+    <string name="default_content_description">Content description</string>
+    <string name="widget_search_input_text">I\'m shopping for…</string>
+
 </resources>
