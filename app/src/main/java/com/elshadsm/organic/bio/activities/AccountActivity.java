@@ -1,14 +1,18 @@
 package com.elshadsm.organic.bio.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.elshadsm.organic.bio.R;
 
 import java.io.File;
@@ -45,6 +49,23 @@ public class AccountActivity extends AppCompatActivity {
         applyConfiguration();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_shopping_cart) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void applyConfiguration() {
         sharedPreferences = getApplicationContext().getSharedPreferences(USER_PREF_NAME, 0);
         String name = sharedPreferences.getString(USER_NAME_PREF_NAME, "");
@@ -71,6 +92,7 @@ public class AccountActivity extends AppCompatActivity {
             image.setImageBitmap(bitmap);
         } catch (FileNotFoundException exception) {
             exception.printStackTrace();
+            Crashlytics.logException(exception);
         }
     }
 }

@@ -51,10 +51,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:text=""
+            style="@style/Medium.Sub.Content.Text"
+            app:layout_constraintBottom_toTopOf="@+id/product_details_rating_bar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_details_image" />
+            app:layout_constraintTop_toBottomOf="@+id/product_details_rating_bar" />
 
         <View
             android:id="@+id/product_details_price_separator"
@@ -73,8 +73,10 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/ic_add_to_shopping_cart"
+            android:tint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator" />
+            app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator"
+            android:contentDescription="@string/default_content_description" />
 
         <TextView
             android:id="@+id/product_details_title"
@@ -83,7 +85,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text=""
+            style="@style/Medium.Content.Text"
             app:layout_constraintBottom_toBottomOf="@+id/product_details_title_separator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator" />
@@ -104,6 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
+            style="@style/Small.Content.Text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_title_separator" />
@@ -114,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Reviews"
+            style="@style/Medium.Sub.Content.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_description" />
 

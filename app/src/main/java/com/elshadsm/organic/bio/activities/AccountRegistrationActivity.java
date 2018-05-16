@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.elshadsm.organic.bio.R;
 
 import java.io.File;
@@ -297,12 +298,14 @@ public class AccountRegistrationActivity extends AppCompatActivity {
             bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
         } catch (Exception e) {
             e.printStackTrace();
+            Crashlytics.logException(e);
         } finally {
             try {
                 assert fos != null;
                 fos.close();
             } catch (IOException e) {
                 e.printStackTrace();
+                Crashlytics.logException(e);
             }
         }
         return directory.getAbsolutePath();

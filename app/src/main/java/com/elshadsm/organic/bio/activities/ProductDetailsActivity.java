@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.data.DatabaseContract;
+import com.elshadsm.organic.bio.data.ProductsDao;
 import com.elshadsm.organic.bio.models.Product;
 import com.elshadsm.organic.bio.models.Review;
 import com.squareup.picasso.Picasso;
@@ -57,6 +58,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     LinearLayout reviewContainer;
 
     Product product;
+    ProductsDao productsDao;
 
     private static final String SCROLL_POSITION_KEY = "scroll_position_key";
 
@@ -99,6 +101,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (id == R.id.action_shopping_cart) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
             return true;
         } else if (id == android.R.id.home) {
             finish();
@@ -108,16 +112,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void applyConfigurations() {
+        productsDao = new ProductsDao(getContentResolver());
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(product.getName());
         Picasso.get()
                 .load(product.getImageSrc())
                 .into(image);
-        addFavorites.setChecked(isFavorite());
+        addFavorites.setChecked(productsDao.isProductFavorite(product));
         ratingBar.setRating(product.getRating());
         price.setText(String.format("%s $", product.getPrice()));
         title.setText(product.getTitle());
-        addShoppingCart.setImageResource(isProductExistInShoppingCart() ?
+        addShoppingCart.setImageResource(productsDao.isProductExistInShoppingCart(product) ?
                 R.drawable.ic_remove_from_shopping_cart : R.drawable.ic_add_to_shopping_cart);
         description.setText(product.getDescription());
         setReviews();
@@ -128,140 +133,26 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton toggleButton, boolean isChecked) {
                 if (isChecked) {
-                    addProductToFavoriteList();
+                    productsDao.addProductToFavoriteList(product);
                     return;
                 }
-                removeProductFromFavoriteList();
+                productsDao.removeProductFromFavoriteList(product);
             }
         });
         addShoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isProductExistInShoppingCart()) {
-                    removeProductFromShoppingCart();
+                if (productsDao.isProductExistInShoppingCart(product)) {
+                    productsDao.removeProductFromShoppingCart(product);
                     addShoppingCart.setImageResource(R.drawable.ic_add_to_shopping_cart);
                     return;
                 }
-                addProductToShoppingCart();
+                productsDao.addProductToShoppingCart(product);
                 addShoppingCart.setImageResource(R.drawable.ic_remove_from_shopping_cart);
             }
         });
     }
 
-    private boolean isFavorite() {
-        try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.FavoriteEntry.CONTENT_URI, null, null, null, null)) {
-            if (cursor == null) {
-                return false;
-            }
-            while (cursor.moveToNext()) {
-                int productId = cursor.getInt(cursor.getColumnIndex(DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID));
-                if (productId == product.getId()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private void addProductToFavoriteList() {
-        if (!isProductExistInDb()) {
-            insertProductToDb();
-        }
-        ContentValues favoriteContentValues = new ContentValues();
-        favoriteContentValues.put(DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID, product.getId());
-        getContentResolver().insert(DatabaseContract.FavoriteEntry.CONTENT_URI, favoriteContentValues);
-    }
-
-    private boolean isProductExistInDb() {
-        String selection = DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID + "=?";
-        String[] selectionArgs = {String.valueOf(product.getId())};
-        String[] projection = {DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID};
-        try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.ProductEntry.CONTENT_URI, projection, selection, selectionArgs, null)) {
-            if (cursor == null) {
-                return false;
-            }
-            while (cursor.moveToNext()) {
-                int productId = cursor.getInt(0);
-                if (productId == product.getId()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private void insertProductToDb() {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID, product.getId());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_CATEGORY, product.getCategory());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION, product.getDescription());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC, product.getImageSrc());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_INSERTION_DATE, product.getInsertionDate());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_NAME, product.getName());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_PRICE, product.getPrice());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_QUANTITY, product.getQuantity());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_RATING, product.getRating());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_STATUS, product.getStatus());
-        contentValues.put(DatabaseContract.ProductEntry.COLUMN_TITLE, product.getTitle());
-        for (Map.Entry<String, Review> entry : product.getReviews().entrySet()) {
-            insertReviewToDb(entry.getValue());
-        }
-        getContentResolver().insert(DatabaseContract.ProductEntry.CONTENT_URI, contentValues);
-    }
-
-    private void insertReviewToDb(Review review) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_REVIEW_ID, review.getId());
-        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_DATE, review.getDate());
-        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_REVIEW, review.getReview());
-        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_FULL_NAME, review.getFullName());
-        contentValues.put(DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID, product.getId());
-        getContentResolver().insert(DatabaseContract.ReviewEntry.CONTENT_URI, contentValues);
-    }
-
-    private void removeProductFromFavoriteList() {
-        String selection = DatabaseContract.FavoriteEntry.COLUMN_PRODUCT_ID + "=?";
-        String[] selectionArgs = {String.valueOf(product.getId())};
-        getContentResolver().delete(DatabaseContract.FavoriteEntry.CONTENT_URI, selection, selectionArgs);
-    }
-
-    private void addProductToShoppingCart() {
-        if (!isProductExistInDb()) {
-            insertProductToDb();
-        }
-        if (!isProductExistInShoppingCart()) {
-            ContentValues shoppingCartContentValues = new ContentValues();
-            shoppingCartContentValues.put(DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID, product.getId());
-            getContentResolver().insert(DatabaseContract.ShoppingCartEntry.CONTENT_URI, shoppingCartContentValues);
-        }
-    }
-
-    private void removeProductFromShoppingCart() {
-        String selection = DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID + "=?";
-        String[] selectionArgs = {String.valueOf(product.getId())};
-        getContentResolver().delete(DatabaseContract.ShoppingCartEntry.CONTENT_URI, selection, selectionArgs);
-    }
-
-    private boolean isProductExistInShoppingCart() {
-        String selection = DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID + "=?";
-        String[] selectionArgs = {String.valueOf(product.getId())};
-        String[] projection = {DatabaseContract.ShoppingCartEntry.COLUMN_PRODUCT_ID};
-        try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.ShoppingCartEntry.CONTENT_URI, projection, selection, selectionArgs, null)) {
-            if (cursor == null) {
-                return false;
-            }
-            while (cursor.moveToNext()) {
-                int productId = cursor.getInt(0);
-                if (productId == product.getId()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     private void setReviews() {
         if (product.getReviews() == null || product.getReviews().size() == 0) {

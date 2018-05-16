@@ -16,21 +16,22 @@
         <ImageView
             android:id="@+id/product_list_item_image"
             android:layout_width="match_parent"
-            android:layout_height="188dp"
+            android:layout_height="204dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/default_content_description" />
 
         <TextView
             android:id="@+id/product_list_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="1dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:text=""
+            style="@style/Medium.Sub.Content.Text"
             app:layout_constraintBottom_toTopOf="@+id/product_list_item_rating_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -40,7 +41,7 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="1dp"
             android:numStars="5"
             android:stepSize="0.5"
             app:layout_constraintBottom_toTopOf="@+id/product_list_item_price"
@@ -51,10 +52,10 @@
             android:id="@+id/product_list_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:text=""
+            style="@style/Small.Content.Text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

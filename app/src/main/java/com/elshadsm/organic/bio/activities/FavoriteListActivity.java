@@ -59,15 +59,19 @@ public class FavoriteListActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.shopping_cart_menu, menu);
+        getMenuInflater().inflate(R.menu.product_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.shopping_cart_action_search) {
+        if (id == R.id.action_search) {
             Intent intent = new Intent(this, ProductSearchActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_shopping_cart) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
             return true;
         } else if (id == android.R.id.home) {

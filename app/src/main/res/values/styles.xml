@@ -30,6 +30,13 @@
     </style>
 
     <style name="Review.Body" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/small_content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Review.Author" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/small_content_text</item>
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:fontFamily">"sans-serif-thin"</item>
     </style>
@@ -56,6 +63,30 @@
         <item name="android:textSize">@dimen/content_text</item>
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Sub.Content.Text" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/sub_content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Medium.Sub.Content.Text" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/sub_content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-medium"</item>
+    </style>
+
+    <style name="Small.Content.Text" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/small_content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-normal"</item>
+    </style>
+
+    <style name="Medium.Content.Text" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/content_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:fontFamily">"sans-serif-medium"</item>
     </style>
 
     <style name="Sub.Header" parent="@style/TextAppearance.AppCompat.Body1">

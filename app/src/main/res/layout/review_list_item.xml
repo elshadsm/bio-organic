@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/review_author_text"
-        style="@style/Review.Body"
+        style="@style/Review.Author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/size_l"

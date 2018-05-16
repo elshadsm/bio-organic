@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00675b</color>
+    <color name="colorAccent">#FFC82e</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_60">#96000000</color>
     <color name="utility_red">#EF665C</color>
 
     <color name="primary_text_color">#424242</color>
+
+    <color name="category_item_background">#66BB6A</color>
     <color name="product_details_review_container_background">#eeeeee</color>
-    <color name="account_cover_background">#E0E0E0</color>
+    <color name="account_cover_background">#E0F2F1</color>
+    <color name="product_list_category_background">#4DB6AC</color>
+    <color name="action_dropdown_background">#E0F2F1</color>
 </resources>

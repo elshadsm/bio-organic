@@ -133,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/country_label" />
@@ -164,7 +164,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/city_label" />
@@ -195,7 +195,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/state_label" />
@@ -227,7 +227,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/postal_code_label" />
@@ -269,6 +269,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
             android:text="@string/account_reg_form_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

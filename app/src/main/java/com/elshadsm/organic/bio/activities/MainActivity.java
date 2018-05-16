@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.CategoryViewAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -98,6 +99,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_shopping_cart) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -236,6 +239,7 @@ public class MainActivity extends AppCompatActivity
             image.setImageBitmap(bitmap);
         } catch (FileNotFoundException exception) {
             exception.printStackTrace();
+            Crashlytics.logException(exception);
         }
     }
 
@@ -249,6 +253,7 @@ public class MainActivity extends AppCompatActivity
             }
         } catch (Exception exception) {
             exception.printStackTrace();
+            Crashlytics.logException(exception);
         }
     }
 

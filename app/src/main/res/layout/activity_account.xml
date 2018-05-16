@@ -21,7 +21,7 @@
             style="@style/Sub.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/account_profile_image" />
 
@@ -31,9 +31,9 @@
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/account_full_name" />
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/account_profile_image"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/account_profile_image"
@@ -52,7 +52,6 @@
         android:id="@+id/account_details_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,14 +70,14 @@
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/account_postal_code"
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 
