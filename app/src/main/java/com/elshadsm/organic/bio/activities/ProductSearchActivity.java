@@ -16,11 +16,18 @@ import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.ProductSearchAdapter;
 import com.elshadsm.organic.bio.models.Product;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import static com.elshadsm.organic.bio.models.Constants.PRODUCT_EXTRA_NAME;
 
 public class ProductSearchActivity extends AppCompatActivity implements ProductSearchAdapter.ProductSearchAdapterListener {
 
+    @BindView(R.id.product_search_recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.product_search_toolbar)
+    Toolbar toolbar;
+
     ProductSearchAdapter productSearchAdapter;
     SearchView searchView;
 
@@ -28,17 +35,8 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_search);
-
-        Toolbar toolbar = findViewById(R.id.product_search_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        recyclerView = findViewById(R.id.product_search_recycler_view);
-        productSearchAdapter = new ProductSearchAdapter(this);
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(productSearchAdapter);
+        ButterKnife.bind(this);
+        applyConfiguration();
     }
 
     @Override
@@ -46,30 +44,11 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
         getMenuInflater().inflate(R.menu.product_search_menu, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        assert searchManager != null;
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setIconified(false);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                productSearchAdapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                productSearchAdapter.getFilter().filter(query);
-                return false;
-            }
-        });
-
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                return true;
-            }
-        });
-
+        registerSearchViewEventHandlers();
         return true;
     }
 
@@ -87,9 +66,41 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
 
     @Override
     public void onProductSelected(Product product) {
-        Intent intent = new Intent( this, ProductDetailsActivity.class);
+        Intent intent = new Intent(this, ProductDetailsActivity.class);
         intent.putExtra(PRODUCT_EXTRA_NAME, product);
         startActivity(intent);
         finish();
+    }
+
+    private void applyConfiguration() {
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        productSearchAdapter = new ProductSearchAdapter(this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(productSearchAdapter);
+    }
+
+    private void registerSearchViewEventHandlers() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                productSearchAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                productSearchAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                return true;
+            }
+        });
     }
 }

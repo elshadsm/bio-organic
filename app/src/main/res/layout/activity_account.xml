@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/account_cover_background"
-        android:padding="16dp"
+        android:padding="@dimen/size_l"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,7 +21,7 @@
             style="@style/Sub.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/activity_account_header_text_horizontal_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/account_profile_image" />
 
@@ -31,15 +31,15 @@
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/activity_account_header_text_horizontal_margin"
             app:layout_constraintBottom_toBottomOf="@+id/account_profile_image"
             app:layout_constraintStart_toStartOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/account_profile_image"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:contentDescription="@string/nav_header_desc"
+            android:layout_width="@dimen/activity_account_image_size"
+            android:layout_height="@dimen/activity_account_image_size"
+            android:contentDescription="@string/default_content_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,9 +51,9 @@
     <LinearLayout
         android:id="@+id/account_details_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_zero"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/size_l"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,14 +70,14 @@
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="@dimen/size" />
 
         <TextView
             android:id="@+id/account_postal_code"
             style="@style/Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="@dimen/size" />
 
     </LinearLayout>
 

@@ -9,19 +9,19 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="Home" />
+            android:title="@string/navigation_drawer_home" />
         <item
             android:id="@+id/nav_my_account"
             android:icon="@drawable/ic_menu_my_account"
-            android:title="My Account" />
+            android:title="@string/navigation_drawer_my_account" />
         <item
             android:id="@+id/nav_shopping_cart"
             android:icon="@drawable/ic_menu_shopping_cart"
-            android:title="Shopping Cart" />
+            android:title="@string/navigation_drawer_shopping_cart" />
         <item
             android:id="@+id/nav_my_favorites"
             android:icon="@drawable/ic_menu_my_favorites"
-            android:title="My Favorites" />
+            android:title="@string/navigation_drawer_my_favorites" />
     </group>
 
     <group
@@ -30,11 +30,11 @@
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
-            android:title="Share" />
+            android:title="@string/navigation_drawer_share" />
         <item
             android:id="@+id/nav_sign"
             android:icon="@drawable/ic_menu_sign_up"
-            android:title="Sign Up" />
+            android:title="@string/navigation_drawer_sign_up" />
     </group>
 
 </menu>

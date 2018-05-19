@@ -24,121 +24,103 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RelativeLayout
-                android:id="@+id/search_action_layout"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/sort_action_layout"
+                android:layout_width="@dimen/size_zero"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/product_list_category_background"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/size"
+                android:paddingTop="@dimen/size">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/sort_action_icon"
+                    android:layout_width="@dimen/icon_size_s"
+                    android:layout_height="@dimen/icon_size_s"
+                    android:contentDescription="@string/default_content_description"
+                    android:src="@drawable/ic_sort" />
+
+                <TextView
+                    android:id="@+id/sort_action_text"
+                    style="@style/ProductList.Action.Text.SansSerifNormal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/sort_action_icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_sort" />
-
-                    <TextView
-                        android:id="@+id/sort_action_text"
-                        style="@style/ProductList.Action.Text.SansSerifNormal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Sort" />
-                </LinearLayout>
-
-            </RelativeLayout>
+                    android:layout_marginStart="@dimen/size"
+                    android:text="@string/sort_action" />
+            </LinearLayout>
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/size_xxs"
                 android:layout_height="match_parent"
                 android:background="@color/white" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/filter_action_layout"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/size_zero"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/product_list_category_background"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/size"
+                android:paddingTop="@dimen/size">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/filter_action_icon"
+                    android:layout_width="@dimen/icon_size_s"
+                    android:layout_height="@dimen/icon_size_s"
+                    android:contentDescription="@string/default_content_description"
+                    android:src="@drawable/ic_filter" />
+
+                <TextView
+                    android:id="@+id/filter_action_text"
+                    style="@style/ProductList.Action.Text.SansSerifNormal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/filter_action_icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_filter" />
-
-                    <TextView
-                        android:id="@+id/filter_action_text"
-                        style="@style/ProductList.Action.Text.SansSerifNormal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Filter" />
-                </LinearLayout>
-
-            </RelativeLayout>
+                    android:layout_marginStart="@dimen/icon_size_s"
+                    android:text="@string/filter_action" />
+            </LinearLayout>
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/size_xxs"
                 android:layout_height="match_parent"
                 android:background="@color/white" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/orientation_action_layout"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/size_zero"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/product_list_category_background"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/size"
+                android:paddingTop="@dimen/size">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/orientation_action_icon"
+                    android:layout_width="@dimen/icon_size_s"
+                    android:layout_height="@dimen/icon_size_s"
+                    android:contentDescription="@string/default_content_description"
+                    android:src="@drawable/ic_linear_view" />
+
+                <TextView
+                    android:id="@+id/view_action_text"
+                    style="@style/ProductList.Action.Text.SansSerifNormal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/orientation_action_icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_linear_view" />
-
-                    <TextView
-                        android:id="@+id/view_action_text"
-                        style="@style/ProductList.Action.Text.SansSerifNormal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="View" />
-                </LinearLayout>
-
-            </RelativeLayout>
+                    android:layout_marginStart="@dimen/size"
+                    android:text="@string/view_action" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -147,11 +129,11 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/product_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="@dimen/size_zero"
+        android:layout_marginBottom="@dimen/size_s"
+        android:layout_marginEnd="@dimen/size_s"
+        android:layout_marginStart="@dimen/size_s"
+        android:layout_marginTop="@dimen/size_s"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +143,7 @@
     <TextView
         android:id="@+id/product_list_empty_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_zero"
         android:gravity="center"
         android:text="@string/product_list_empty_view"
         android:visibility="gone"
@@ -184,11 +166,11 @@
             android:id="@+id/sort_action_close_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:text="Close"
+            android:layout_marginBottom="@dimen/size_l"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
             android:background="@color/colorAccent"
+            android:text="@string/action_close_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -197,10 +179,10 @@
             android:id="@+id/lowest_price_check_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="128dp"
-            android:text="The lowest price"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/lowest_price_check_box_margin_top"
+            android:text="@string/the_lowest_price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,8 +191,8 @@
         <View
             android:id="@+id/lowest_price_separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="@dimen/size_xxs"
+            android:layout_marginTop="@dimen/size_l"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -220,10 +202,10 @@
             android:id="@+id/highest_price_check_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="The highest price"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
+            android:text="@string/the_highest_price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -232,8 +214,8 @@
         <View
             android:id="@+id/highest_price_separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="@dimen/size_xxs"
+            android:layout_marginTop="@dimen/size_l"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -243,10 +225,10 @@
             android:id="@+id/newest_check_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="The newest products"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
+            android:text="@string/the_newest_products"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -255,8 +237,8 @@
         <View
             android:id="@+id/newest_separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="@dimen/size_xxs"
+            android:layout_marginTop="@dimen/size_l"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -282,11 +264,11 @@
             android:id="@+id/filter_action_close_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:text="Close"
+            android:layout_marginBottom="@dimen/size_l"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
             android:background="@color/colorAccent"
+            android:text="@string/action_close_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -295,11 +277,11 @@
             android:id="@+id/filter_action_done_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:text="Done"
+            android:layout_marginBottom="@dimen/size_l"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
             android:background="@color/colorAccent"
+            android:text="@string/action_done_button"
             app:layout_constraintBottom_toTopOf="@+id/filter_action_close_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -309,20 +291,20 @@
             android:id="@+id/filter_amount_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="128dp"
-            android:text="Amount"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/filter_amount_label_margin_top"
+            android:text="@string/amount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/filter_from_amount"
-            android:layout_width="156dp"
+            android:layout_width="@dimen/filter_from_amount_input_with"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
             android:ems="10"
-            android:hint="From"
+            android:hint="@string/from"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/filter_amount_label" />
@@ -331,22 +313,22 @@
             android:id="@+id/filter_amount_divider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="30dp"
-            android:text="-"
+            android:layout_marginEnd="@dimen/size"
+            android:layout_marginStart="@dimen/size"
+            android:layout_marginTop="@dimen/filter_amount_divider_margin_top"
+            android:text="@string/from_to_amount_inputs_separator"
             app:layout_constraintEnd_toStartOf="@+id/filter_to_amount"
             app:layout_constraintStart_toEndOf="@+id/filter_from_amount"
             app:layout_constraintTop_toBottomOf="@+id/filter_amount_label" />
 
         <EditText
             android:id="@+id/filter_to_amount"
-            android:layout_width="156dp"
+            android:layout_width="@dimen/filter_from_amount_input_with"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="To"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
+            android:ems="@integer/form_input_ems"
+            android:hint="@string/to"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/filter_amount_label" />

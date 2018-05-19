@@ -11,11 +11,17 @@
     <string name="nav_header_title">Elshad Seyidmammadov</string>
     <string name="nav_header_subtitle">elshadsm@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_shopping_cart">Shopping Cart</string>
     <string name="data_content_authority">com.elshadsm.organic.bio</string>
+    <string name="action_shopping_cart">Shopping Cart</string>
+    <string name="action_search">Search</string>
+    <string name="navigation_drawer_home">Home</string>
+    <string name="navigation_drawer_my_account">My Account</string>
+    <string name="navigation_drawer_shopping_cart">Shopping Cart</string>
+    <string name="navigation_drawer_my_favorites">My Favorites</string>
+    <string name="navigation_drawer_share">Share</string>
+    <string name="navigation_drawer_sign_up">Sign Up</string>
+    <string name="navigation_drawer_logout">Logout</string>
 
-    <string name="drawer_menu_sign_up">Sign Up</string>
-    <string name="drawer_menu_logout">Logout</string>
     <string name="drawer_menu_name_default_value">Name</string>
     <string name="drawer_menu_surname_default_value">Surname</string>
     <string name="drawer_menu_email_default_value">email@example.com</string>
@@ -58,5 +64,29 @@
 
     <string name="default_content_description">Content description</string>
     <string name="widget_search_input_text">I\'m shopping for…</string>
+
+    <string name="product_details_reviews_label">Reviews</string>
+
+    <string name="sort_action">Sort</string>
+    <string name="filter_action">Filter</string>
+    <string name="view_action">View</string>
+    <string name="action_close_button">Close</string>
+    <string name="action_done_button">Done</string>
+    <string name="the_lowest_price">The lowest price</string>
+    <string name="the_highest_price">The highest price</string>
+    <string name="the_newest_products">The newest products</string>
+    <string name="amount">Amount</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="from_to_amount_inputs_separator">-</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="search_for">Search for…</string>
+
+    <string name="category_foods">Foods</string>
+    <string name="category_spices">Spices</string>
+    <string name="category_medication">Medication</string>
+    <string name="category_beauty">Beauty</string>
+    <string name="category_home">Home</string>
+    <string name="category_others">Others</string>
 
 </resources>

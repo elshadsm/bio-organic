@@ -14,7 +14,8 @@
         <ImageView
             android:id="@+id/product_details_image"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="@dimen/product_details_image_height"
+            android:contentDescription="@string/default_content_description"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +23,10 @@
 
         <ToggleButton
             android:id="@+id/product_details_add_favorites"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
             android:background="@drawable/button_favorite"
             android:checked="false"
             android:text=""
@@ -39,19 +40,19 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:numStars="5"
-            android:stepSize="0.5"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size_l"
+            android:numStars="@integer/rating_bar_num_starts"
+            android:stepSize="@dimen/rating_bar_step_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_image" />
 
         <TextView
             android:id="@+id/product_details_price"
+            style="@style/Medium.Sub.Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            style="@style/Medium.Sub.Content.Text"
+            android:layout_marginEnd="@dimen/size_l"
             app:layout_constraintBottom_toTopOf="@+id/product_details_rating_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_rating_bar" />
@@ -59,8 +60,8 @@
         <View
             android:id="@+id/product_details_price_separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="@dimen/size_xxs"
+            android:layout_marginTop="@dimen/size"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,24 +69,24 @@
 
         <ImageView
             android:id="@+id/product_details_add_to_shopping_cart"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginTop="@dimen/size"
+            android:contentDescription="@string/default_content_description"
             android:src="@drawable/ic_add_to_shopping_cart"
             android:tint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator"
-            android:contentDescription="@string/default_content_description" />
+            app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator" />
 
         <TextView
             android:id="@+id/product_details_title"
+            style="@style/Medium.Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            style="@style/Medium.Content.Text"
+            android:layout_marginBottom="@dimen/size"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size"
             app:layout_constraintBottom_toBottomOf="@+id/product_details_title_separator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator" />
@@ -93,8 +94,8 @@
         <View
             android:id="@+id/product_details_title_separator"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="@dimen/size_xxs"
+            android:layout_marginTop="@dimen/size"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,21 +104,21 @@
 
         <TextView
             android:id="@+id/product_details_description"
+            style="@style/Small.Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            style="@style/Small.Content.Text"
+            android:padding="@dimen/size_l"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_title_separator" />
 
         <TextView
             android:id="@+id/product_details_review_label"
+            style="@style/Medium.Sub.Content.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Reviews"
-            style="@style/Medium.Sub.Content.Text"
+            android:layout_marginStart="@dimen/size_l"
+            android:text="@string/product_details_reviews_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_description" />
 
@@ -125,10 +126,10 @@
             android:id="@+id/product_details_review_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/size_l"
+            android:layout_marginEnd="@dimen/size_l"
+            android:layout_marginStart="@dimen/size_l"
+            android:layout_marginTop="@dimen/size"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

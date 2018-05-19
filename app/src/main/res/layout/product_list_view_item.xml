@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/product_list_view_item"
     android:layout_width="match_parent"
-    android:layout_height="88dp"
-    android:layout_margin="4dp"
+    android:layout_height="@dimen/product_list_view_item_height"
+    android:layout_margin="@dimen/size_s"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/product_list_view_image"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="@dimen/product_list_view_image_size"
+        android:layout_height="@dimen/product_list_view_image_size"
+        android:layout_marginBottom="@dimen/size_s"
+        android:layout_marginStart="@dimen/size_s"
+        android:layout_marginTop="@dimen/size_s"
+        android:contentDescription="@string/default_content_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,8 +24,8 @@
         style="@style/Medium.Sub.Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/size_l"
+        android:layout_marginTop="@dimen/size_s"
         app:layout_constraintStart_toEndOf="@+id/product_list_view_image"
         app:layout_constraintTop_toTopOf="@+id/product_list_view_image" />
 
@@ -34,8 +34,8 @@
         style="@style/Sub.Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/size_xs"
+        android:layout_marginStart="@dimen/size_l"
         app:layout_constraintBottom_toTopOf="@+id/product_list_view_status"
         app:layout_constraintStart_toEndOf="@+id/product_list_view_image" />
 
@@ -44,8 +44,8 @@
         style="@style/Small.Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/size_s"
+        android:layout_marginStart="@dimen/size_l"
         app:layout_constraintBottom_toBottomOf="@+id/product_list_view_image"
         app:layout_constraintStart_toEndOf="@+id/product_list_view_image" />
 
@@ -54,8 +54,8 @@
         style="@style/Medium.Sub.Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="@dimen/size"
+        android:layout_marginEnd="@dimen/size_s"
         app:layout_constraintBottom_toBottomOf="@+id/product_list_view_quantity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_list_view_status" />
@@ -63,9 +63,9 @@
     <View
         android:id="@+id/product_list_view_separator"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_height="@dimen/size_xxs"
+        android:layout_marginEnd="@dimen/size_s"
+        android:layout_marginStart="@dimen/size_s"
         android:background="@color/black_60"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

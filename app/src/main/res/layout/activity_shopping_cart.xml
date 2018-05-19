@@ -9,9 +9,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/shopping_cart_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_zero"
         android:clipToPadding="false"
-        android:padding="4dp"
+        android:padding="@dimen/size_s"
         android:scrollbarStyle="outsideOverlay"
         app:layout_constraintBottom_toTopOf="@+id/shopping_cart_separator"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,20 +21,20 @@
     <TextView
         android:id="@+id/shopping_cart_empty_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/size_zero"
         android:gravity="center"
         android:text="@string/shopping_cart_empty_view"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/shopping_cart_separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/shopping_cart_separator"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/size_xxs"
+        android:layout_marginBottom="@dimen/size_l"
         android:background="@color/black_60"
         app:layout_constraintBottom_toTopOf="@+id/shopping_cart_next_operation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,33 +43,34 @@
 
     <TextView
         android:id="@+id/shopping_cart_total_amount_label"
+        style="@style/Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:text="Total Amount"
-        style="@style/Content.Text"
+        android:layout_marginBottom="@dimen/size_l"
+        android:layout_marginStart="@dimen/size_l"
+        android:text="@string/total_amount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/shopping_cart_total_amount"
+        style="@style/Medium.Content.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        style="@style/Medium.Content.Text"
+        android:layout_marginBottom="@dimen/size_l"
+        android:layout_marginEnd="@dimen/size_l"
+        android:layout_marginStart="@dimen/size_l"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/shopping_cart_next_operation"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/icon_size_s"
+        android:layout_height="@dimen/icon_size_s"
+        android:layout_marginBottom="@dimen/size_l"
+        android:layout_marginEnd="@dimen/size_l"
+        android:contentDescription="@string/default_content_description"
         android:src="@drawable/ic_arrow_forward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

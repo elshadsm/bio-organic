@@ -23,7 +23,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
@@ -47,6 +47,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.elshadsm.organic.bio.models.Constants.CATEGORY_EXTRA_NAME;
+import static com.elshadsm.organic.bio.models.Constants.FIREBASE_PRODUCTS_CATEGORY_COLUMN;
 
 public class ProductListActivity extends AppCompatActivity {
 
@@ -54,12 +55,12 @@ public class ProductListActivity extends AppCompatActivity {
 
     @BindView(R.id.activity_product_list_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.search_action_layout)
-    RelativeLayout searchActionLayout;
+    @BindView(R.id.sort_action_layout)
+    LinearLayout sortActionLayout;
     @BindView(R.id.filter_action_layout)
-    RelativeLayout filterActionLayout;
+    LinearLayout filterActionLayout;
     @BindView(R.id.orientation_action_layout)
-    RelativeLayout orientationActionLayout;
+    LinearLayout orientationActionLayout;
     @BindView(R.id.sort_action_view)
     ConstraintLayout sortActionView;
     @BindView(R.id.filter_action_view)
@@ -136,7 +137,7 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void registerActionEventHandlers() {
-        searchActionLayout.setOnClickListener(new View.OnClickListener() {
+        sortActionLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isFilterActionDown) {
@@ -236,7 +237,7 @@ public class ProductListActivity extends AppCompatActivity {
         filterActionDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Query query = databaseReference.orderByChild("category");
+                Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
                 fetchData(query, null);
                 closeFilterActionView();
             }
@@ -368,7 +369,7 @@ public class ProductListActivity extends AppCompatActivity {
     private void initData() {
         List<Product> productList = productsDao.getProductList(category.getCategory());
         renderProductList(productList, category.getCategory());
-        Query query = databaseReference.orderByChild("category");
+        Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
         fetchData(query, null);
     }
 
@@ -484,7 +485,7 @@ public class ProductListActivity extends AppCompatActivity {
                 highestPriceCheckBox.isChecked() ||
                 newestCheckBox.isChecked();
         if (!someIsChecked) {
-            Query query = databaseReference.orderByChild("category");
+            Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
             fetchData(query, null);
         }
     }

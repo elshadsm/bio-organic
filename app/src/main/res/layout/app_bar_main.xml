@@ -9,9 +9,9 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
         android:focusable="false"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -30,19 +30,21 @@
                 android:id="@+id/search_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="2dp"
-                android:hint="Search for..." />
+                android:layout_marginBottom="@dimen/size"
+                android:layout_marginEnd="@dimen/size_l"
+                android:layout_marginStart="@dimen/size_l"
+                android:layout_marginTop="@dimen/size_xs"
+                android:hint="@string/search_for"
+                android:inputType="text" />
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/icon_size_s"
+                android:layout_height="@dimen/icon_size_s"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="@dimen/size_l"
+                android:contentDescription="@string/default_content_description"
                 android:src="@drawable/ic_search" />
 
         </RelativeLayout>

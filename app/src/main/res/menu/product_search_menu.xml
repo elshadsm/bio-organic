@@ -6,8 +6,8 @@
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
-        android:orderInCategory="100"
-        android:title="action_search"
+        android:orderInCategory="@integer/action_search_order_in_category"
+        android:title="@string/action_search"
         app:showAsAction="always"
         app:actionViewClass="android.support.v7.widget.SearchView" />
 </menu>

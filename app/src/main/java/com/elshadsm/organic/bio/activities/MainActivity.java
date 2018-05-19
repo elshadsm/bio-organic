@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.nav_home:
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getApplicationContext().getSharedPreferences(USER_PREF_NAME, 0);
         databaseReference = FirebaseDatabase.getInstance().getReference(FIREBASE_PRODUCTS_REFERENCE);
         setSupportActionBar(toolbar);
-        recyclerView.setAdapter(new CategoryViewAdapter());
+        recyclerView.setAdapter(new CategoryViewAdapter(this));
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -188,7 +189,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void applyLoggedInConfiguration() {
-        signMenuItem.setTitle(R.string.drawer_menu_logout);
+        signMenuItem.setTitle(R.string.navigation_drawer_logout);
         signMenuItem.setIcon(R.drawable.ic_menu_logout);
         View header = navigationView.getHeaderView(0);
         ImageView profileImage = header.findViewById(R.id.navigation_profile_image);
@@ -210,7 +211,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void applySignUpConfiguration() {
-        signMenuItem.setTitle(R.string.drawer_menu_sign_up);
+        signMenuItem.setTitle(R.string.navigation_drawer_sign_up);
         signMenuItem.setIcon(R.drawable.ic_menu_sign_up);
         View header = navigationView.getHeaderView(0);
         ImageView profileImage = header.findViewById(R.id.navigation_profile_image);

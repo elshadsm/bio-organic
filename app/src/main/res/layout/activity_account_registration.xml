@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
-        android:padding="16dp">
+        android:padding="@dimen/size_l">
 
         <TextView
             android:id="@+id/main_label"
@@ -28,7 +28,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/name_input"
             android:text="@string/account_reg_form_name"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +36,9 @@
 
         <EditText
             android:id="@+id/name_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         <TextView
             android:id="@+id/name_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/surname_input"
             android:text="@string/account_reg_form_surname"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,9 +67,9 @@
 
         <EditText
             android:id="@+id/surname_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/surname_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/email_input"
             android:text="@string/account_reg_form_email"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,9 +99,9 @@
 
         <EditText
             android:id="@+id/email_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
         <TextView
             android:id="@+id/email_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +122,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/country_input"
             android:text="@string/account_reg_form_country"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,9 +130,9 @@
 
         <EditText
             android:id="@+id/country_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +141,7 @@
         <TextView
             android:id="@+id/country_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +153,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/city_input"
             android:text="@string/account_reg_form_city"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,9 +161,9 @@
 
         <EditText
             android:id="@+id/city_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +172,7 @@
         <TextView
             android:id="@+id/city_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +184,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/state_input"
             android:text="@string/account_reg_form_state"
             app:layout_constraintStart_toStartOf="parent"
@@ -192,9 +192,9 @@
 
         <EditText
             android:id="@+id/state_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +203,7 @@
         <TextView
             android:id="@+id/state_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -216,7 +216,7 @@
             style="@style/Form.Input.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/size"
             android:labelFor="@+id/postal_code_input"
             android:text="@string/account_reg_form_postal_code"
             app:layout_constraintStart_toStartOf="parent"
@@ -224,9 +224,9 @@
 
         <EditText
             android:id="@+id/postal_code_input"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="@integer/form_input_ems"
             android:inputType="textCapSentences"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -235,7 +235,7 @@
         <TextView
             android:id="@+id/postal_code_message"
             style="@style/Form.Error.Message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -244,9 +244,9 @@
 
         <ImageView
             android:id="@+id/image_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginTop="@dimen/size_l"
             android:contentDescription="@string/account_reg_form_photo_content_desc"
             android:src="@drawable/ic_account_box"
             app:layout_constraintEnd_toEndOf="parent"
@@ -255,9 +255,9 @@
         <TextView
             android:id="@+id/image_label"
             style="@style/Form.Input.Label"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/size"
             android:text="@string/account_reg_form_photo"
             app:layout_constraintBottom_toTopOf="@+id/image_icon"
             app:layout_constraintEnd_toStartOf="@+id/image_icon"
@@ -266,7 +266,7 @@
 
         <Button
             android:id="@+id/start_button"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@color/colorAccent"

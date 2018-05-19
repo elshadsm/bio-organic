@@ -3,15 +3,38 @@
     <dimen name="size_l">16dp</dimen>
     <dimen name="size">8dp</dimen>
     <dimen name="size_s">4dp</dimen>
+    <dimen name="size_xs">2dp</dimen>
+    <dimen name="size_xxs">1dp</dimen>
+    <dimen name="size_zero">0dp</dimen>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="category_view_title_size">18sp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="category_view_title_size">18sp</dimen>
+    <dimen name="activity_account_header_text_horizontal_margin">10dp</dimen>
+    <dimen name="activity_account_image_size">76dp</dimen>
+    <dimen name="product_details_image_height">250dp</dimen>
+    <dimen name="lowest_price_check_box_margin_top">128dp</dimen>
+    <dimen name="filter_amount_label_margin_top">128dp</dimen>
+    <dimen name="filter_from_amount_input_with">156dp</dimen>
+    <dimen name="filter_amount_divider_margin_top">30dp</dimen>
+    <dimen name="category_view_height">200dp</dimen>
+    <dimen name="category_view_icon_size">100dp</dimen>
+    <dimen name="category_view_icon_margin_top">32dp</dimen>
+    <dimen name="product_list_item_height">270dp</dimen>
+    <dimen name="product_list_item_image_height">204dp</dimen>
+    <dimen name="product_list_view_item_height">88dp</dimen>
+    <dimen name="product_list_view_image_size">72dp</dimen>
+    <dimen name="widget_height">300dp</dimen>
+    <dimen name="widget_width">60dp</dimen>
+
     <dimen name="product_list_action_text_size">18sp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="icon_size">36dp</dimen>
+    <dimen name="icon_size_s">24dp</dimen>
+
     <dimen name="form_error_message">12sp</dimen>
     <dimen name="form_common_label">16sp</dimen>
     <dimen name="form_input_label">14sp</dimen>
@@ -22,4 +45,10 @@
 
     <integer name="grid_view_landscape_column_number">4</integer>
     <integer name="grid_view_portrait_column_number">2</integer>
+    <integer name="rating_bar_num_starts">5</integer>
+    <integer name="form_input_ems">10</integer>
+    <integer name="action_search_order_in_category">100</integer>
+    <integer name="widget_update_period_millis">1800000</integer>
+
+    <item name="rating_bar_step_size" format="float" type="dimen">0.5</item>
 </resources>

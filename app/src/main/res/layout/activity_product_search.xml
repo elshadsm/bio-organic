@@ -23,8 +23,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/product_search_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
+        android:layout_height="@dimen/size_zero"
+        android:layout_margin="@dimen/size_s"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

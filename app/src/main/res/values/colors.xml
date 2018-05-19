@@ -15,5 +15,6 @@
     <color name="product_details_review_container_background">#eeeeee</color>
     <color name="account_cover_background">#E0F2F1</color>
     <color name="product_list_category_background">#4DB6AC</color>
+    <color name="app_widget_layout_background">#554DB6AC</color>
     <color name="action_dropdown_background">#E0F2F1</color>
 </resources>

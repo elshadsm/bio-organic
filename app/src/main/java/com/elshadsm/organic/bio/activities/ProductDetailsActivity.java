@@ -1,8 +1,6 @@
 package com.elshadsm.organic.bio.activities;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +17,6 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.elshadsm.organic.bio.R;
-import com.elshadsm.organic.bio.data.DatabaseContract;
 import com.elshadsm.organic.bio.data.ProductsDao;
 import com.elshadsm.organic.bio.models.Product;
 import com.elshadsm.organic.bio.models.Review;
@@ -96,17 +93,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_search) {
-            Intent intent = new Intent(this, ProductSearchActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_shopping_cart) {
-            Intent intent = new Intent(this, ShoppingCartActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == android.R.id.home) {
-            finish();
-            return true;
+        switch (id) {
+            case R.id.action_search: {
+                Intent intent = new Intent(this, ProductSearchActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.action_shopping_cart: {
+                Intent intent = new Intent(this, ShoppingCartActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -152,7 +152,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void setReviews() {
         if (product.getReviews() == null || product.getReviews().size() == 0) {

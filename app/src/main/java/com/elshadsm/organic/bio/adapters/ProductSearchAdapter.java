@@ -1,5 +1,6 @@
 package com.elshadsm.organic.bio.adapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.elshadsm.organic.bio.models.Constants.FIREBASE_PRODUCTS_CATEGORY_COLUMN;
+import static com.elshadsm.organic.bio.models.Constants.FIREBASE_PRODUCTS_REFERENCE;
+
 public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdapter.MyViewHolder> implements Filterable {
 
     private static final String LOG_TAG = ProductSearchAdapter.class.getSimpleName();
@@ -34,20 +38,21 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
 
     public ProductSearchAdapter(ProductSearchAdapterListener listener) {
         this.listener = listener;
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("products");
-        Query query = databaseReference.orderByChild("category");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(FIREBASE_PRODUCTS_REFERENCE);
+        Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
         fetchData(query);
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.product_search_result_item, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final Product productSearchResult = filteredProductList.get(position);
         holder.name.setText(productSearchResult.getName());
     }
@@ -64,7 +69,7 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
                 List<Product> result = new ArrayList<>();
-                if (!charString.isEmpty() && charString.length() > 2) {
+                if (!charString.isEmpty() && charString.length() > 1) {
                     filterProductList(charString, result);
                 }
                 FilterResults filterResults = new FilterResults();
@@ -118,7 +123,7 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
         @BindView(R.id.product_search_result_item_name)
         public TextView name;
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(new View.OnClickListener() {

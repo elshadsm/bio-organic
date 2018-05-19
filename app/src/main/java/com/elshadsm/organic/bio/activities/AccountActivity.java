@@ -39,8 +39,6 @@ public class AccountActivity extends AppCompatActivity {
     @BindView(R.id.account_postal_code)
     TextView postalCode;
 
-    private SharedPreferences sharedPreferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +65,7 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     private void applyConfiguration() {
-        sharedPreferences = getApplicationContext().getSharedPreferences(USER_PREF_NAME, 0);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(USER_PREF_NAME, 0);
         String name = sharedPreferences.getString(USER_NAME_PREF_NAME, "");
         String surname = sharedPreferences.getString(USER_SURNAME_PREF_NAME, "");
         fullName.setText(String.format("%s %s", name, surname));

@@ -2,6 +2,7 @@ package com.elshadsm.organic.bio.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +32,9 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
         notifyDataSetChanged();
     }
 
+    @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         Context viewContext = viewGroup.getContext();
         int layoutId = R.layout.product_list_view_item;
         LayoutInflater inflater = LayoutInflater.from(viewContext);
@@ -41,7 +43,7 @@ public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapte
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.name.setText(product.getName());
         holder.quantity.setText(product.getQuantity());

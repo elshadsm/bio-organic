@@ -66,17 +66,20 @@ public class FavoriteListActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_search) {
-            Intent intent = new Intent(this, ProductSearchActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_shopping_cart) {
-            Intent intent = new Intent(this, ShoppingCartActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == android.R.id.home) {
-            finish();
-            return true;
+        switch (id) {
+            case R.id.action_search: {
+                Intent intent = new Intent(this, ProductSearchActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.action_shopping_cart: {
+                Intent intent = new Intent(this, ShoppingCartActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

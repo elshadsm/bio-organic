@@ -8,6 +8,7 @@ public class Constants {
     public static final String USER_SIGNED_UP_PREF_NAME = "user_signed_up_preference";
 
     public static final String FIREBASE_PRODUCTS_REFERENCE = "products";
+    public static final String FIREBASE_PRODUCTS_CATEGORY_COLUMN = "category";
 
     public static final String USER_NAME_PREF_NAME = "user_name_preference";
     public static final String USER_SURNAME_PREF_NAME = "user_surname_preference";
@@ -17,6 +18,13 @@ public class Constants {
     public static final String USER_STATE_PREF_NAME = "user_state_preference";
     public static final String USER_POSTAL_CODE_PREF_NAME = "user_postal_code_preference";
     public static final String USER_IMAGE_PATH_PREF_NAME = "user_image_path_preference";
+
+    public static final String CATEGORY_FOODS = "foods";
+    public static final String CATEGORY_SPICES = "spices";
+    public static final String CATEGORY_MEDICATION = "medication";
+    public static final String CATEGORY_BEAUTY = "beauty";
+    public static final String CATEGORY_HOME = "home";
+    public static final String CATEGORY_OTHERS = "others";
 
     public static final String USER_PROFILE_IMAGE_FILE = "profile.jpg";
 }
