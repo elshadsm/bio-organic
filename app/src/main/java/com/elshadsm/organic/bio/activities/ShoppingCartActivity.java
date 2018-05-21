@@ -2,6 +2,8 @@ package com.elshadsm.organic.bio.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,9 +36,17 @@ public class ShoppingCartActivity extends AppCompatActivity {
     @BindView(R.id.shopping_cart_empty_view)
     TextView emptyView;
 
+    private static final String SAVED_LAYOUT_MANAGER_KEY = "saved_layout_manager";
+
     private ShoppingCartAdapter shoppingCartAdapter;
     private List<Product> productList = new ArrayList<>();
     private float totalAmount;
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(SAVED_LAYOUT_MANAGER_KEY, recyclerView.getLayoutManager().onSaveInstanceState());
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +54,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shopping_cart);
         ButterKnife.bind(this);
         applyConfiguration();
+        restoreViewState(savedInstanceState);
     }
 
     @Override
@@ -151,6 +162,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 DatabaseContract.ReviewEntry.COLUMN_FULL_NAME,
                 DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID
         };
+    }
+
+    public void restoreViewState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(SAVED_LAYOUT_MANAGER_KEY);
+            recyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
     }
 
 }

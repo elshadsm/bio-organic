@@ -2,6 +2,7 @@ package com.elshadsm.organic.bio.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,8 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
     private List<Product> productList = new ArrayList<>();
     private List<Product> filteredProductList = new ArrayList<>();
     private ProductSearchAdapterListener listener;
+
+    private String initialQuery;
 
     public ProductSearchAdapter(ProductSearchAdapterListener listener) {
         this.listener = listener;
@@ -86,6 +89,10 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
         };
     }
 
+    public void setInitialQuery(String query) {
+        initialQuery = query;
+    }
+
     private void filterProductList(String charString, List<Product> result) {
         for (Product product : productList) {
             if (product.getName().toLowerCase().startsWith(charString.toLowerCase())) {
@@ -104,6 +111,10 @@ public class ProductSearchAdapter extends RecyclerView.Adapter<ProductSearchAdap
                         Product product = productSnapshot.getValue(Product.class);
                         assert product != null;
                         productList.add(product);
+                    }
+                    if (!TextUtils.isEmpty(initialQuery)) {
+                        getFilter().filter(initialQuery);
+                        initialQuery = "";
                     }
                 }
             }

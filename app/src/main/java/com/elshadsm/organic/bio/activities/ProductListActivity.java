@@ -1,8 +1,11 @@
 package com.elshadsm.organic.bio.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +41,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -106,11 +111,30 @@ public class ProductListActivity extends AppCompatActivity {
     private final String SLIDE_ACTION_TYPE_SORT = "sort";
     private final String SLIDE_ACTION_TYPE_FILTER = "filter";
 
+    private static final String SAVED_LAYOUT_MANAGER_KEY = "saved_layout_manager";
+    private static final String SORT_ACTION_VISIBLE_KEY = "sort_action_visible";
+    private static final String FILTER_ACTION_VISIBLE_KEY = "filter_action_visible";
+    private static final String ORIENTATION_ACTION_VISIBLE_KEY = "orientation_action_visible";
+
+    List<Product> productList;
+    private String sortType;
+    private Bundle savedInstanceState;
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(SAVED_LAYOUT_MANAGER_KEY, recyclerView.getLayoutManager().onSaveInstanceState());
+        outState.putBoolean(SORT_ACTION_VISIBLE_KEY, isSortActionDown);
+        outState.putBoolean(FILTER_ACTION_VISIBLE_KEY, isFilterActionDown);
+        outState.putBoolean(ORIENTATION_ACTION_VISIBLE_KEY, isViewGridLayout);
+        super.onSaveInstanceState(outState);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
         ButterKnife.bind(this);
+        this.savedInstanceState = savedInstanceState;
         setSupportActionBar(toolbar);
         applyConfiguration();
         registerActionEventHandlers();
@@ -118,6 +142,26 @@ public class ProductListActivity extends AppCompatActivity {
         registerFilterActionEventHandlers();
         initData();
         applyActionBarConfiguration();
+        applySavedInstanceState();
+    }
+
+    private void applySavedInstanceState() {
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getBoolean(SORT_ACTION_VISIBLE_KEY, false)) {
+                sortActionView.setVisibility(View.VISIBLE);
+                enableSortActionView(true);
+                isSortActionDown = true;
+            } else if (savedInstanceState.getBoolean(FILTER_ACTION_VISIBLE_KEY, false)) {
+                filterActionView.setVisibility(View.VISIBLE);
+                enableFilterActionView(true);
+                isFilterActionDown = true;
+            }
+            if (!savedInstanceState.getBoolean(ORIENTATION_ACTION_VISIBLE_KEY, true)) {
+                setLayoutManager(ORIENTATION_TYPE_LINEAR);
+                orientationActionIcon.setImageResource(R.drawable.ic_grid_view);
+                isViewGridLayout = !isViewGridLayout;
+            }
+        }
     }
 
     private void applyConfiguration() {
@@ -185,10 +229,10 @@ public class ProductListActivity extends AppCompatActivity {
                 closeSortActionView();
             }
         });
-        lowestPriceCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        lowestPriceCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View view) {
+                if (lowestPriceCheckBox.isChecked()) {
                     highestPriceCheckBox.setChecked(false);
                     newestCheckBox.setChecked(false);
                     sortProductListView(SORT_TYPE_LOWEST_PRICE);
@@ -198,10 +242,10 @@ public class ProductListActivity extends AppCompatActivity {
                 resetSortActions();
             }
         });
-        highestPriceCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        highestPriceCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View view) {
+                if (highestPriceCheckBox.isChecked()) {
                     lowestPriceCheckBox.setChecked(false);
                     newestCheckBox.setChecked(false);
                     sortProductListView(SORT_TYPE_HIGHEST_PRICE);
@@ -211,10 +255,10 @@ public class ProductListActivity extends AppCompatActivity {
                 resetSortActions();
             }
         });
-        newestCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        newestCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View view) {
+                if (newestCheckBox.isChecked()) {
                     highestPriceCheckBox.setChecked(false);
                     lowestPriceCheckBox.setChecked(false);
                     sortProductListView(SORT_TYPE_NEWEST);
@@ -238,7 +282,7 @@ public class ProductListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
-                fetchData(query, null);
+                fetchData(query);
                 closeFilterActionView();
             }
         });
@@ -265,13 +309,13 @@ public class ProductListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void slideActionViewUp(View view, String type) {
+    public void slideActionViewUp(View view, String type, int delta) {
         view.setVisibility(View.GONE);
         TranslateAnimation animate = new TranslateAnimation(
                 0,                 // fromXDelta
                 0,                 // toXDelta
                 0,  // fromYDelta
-                -view.getHeight() - 500);                // toYDelta
+                -view.getHeight() - delta);                // toYDelta
         animate.setDuration(500);
         animate.setFillAfter(true);
         setSlideActionViewUpListeners(animate, type);
@@ -342,7 +386,7 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void closeSortActionView() {
-        slideActionViewUp(sortActionView, SLIDE_ACTION_TYPE_SORT);
+        slideActionViewUp(sortActionView, SLIDE_ACTION_TYPE_SORT, 500);
         isSortActionDown = !isSortActionDown;
     }
 
@@ -352,8 +396,9 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void closeFilterActionView() {
+        int delta = (fromAmountEditText.isFocused() || toAmountEditText.isFocused()) ? 900 : 500;
         removeFocusEditTexts();
-        slideActionViewUp(filterActionView, SLIDE_ACTION_TYPE_FILTER);
+        slideActionViewUp(filterActionView, SLIDE_ACTION_TYPE_FILTER, delta);
         isFilterActionDown = !isFilterActionDown;
     }
 
@@ -367,10 +412,13 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        List<Product> productList = productsDao.getProductList(category.getCategory());
-        renderProductList(productList, category.getCategory());
+        if (productList != null) {
+            return;
+        }
+        productList = productsDao.getProductList(category.getCategory());
+        renderProductList();
         Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
-        fetchData(query, null);
+        fetchData(query);
     }
 
     private void applyActionBarConfiguration() {
@@ -380,12 +428,13 @@ public class ProductListActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(category.getTitle());
     }
 
-    private void fetchData(Query query, final String type) {
+    private void fetchData(Query query) {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    renderProductList(dataSnapshot, type);
+                    storeProductList(dataSnapshot);
+                    renderProductList();
                 }
             }
 
@@ -396,88 +445,78 @@ public class ProductListActivity extends AppCompatActivity {
         });
     }
 
-    private void renderProductList(DataSnapshot dataSnapshot, String type) {
-        List<Product> productList = processProductList(dataSnapshot, type);
-        productsDao.insertProductList(productList);
-        productListAdapter.setData(productList);
-        if (productList.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-            return;
-        }
-        recyclerView.setVisibility(View.VISIBLE);
-        emptyView.setVisibility(View.GONE);
-    }
-
-    private void renderProductList(List<Product> rawProductList, String type) {
-        List<Product> productList = processProductList(rawProductList, type);
-        productListAdapter.setData(productList);
-        if (productList.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
-            return;
-        }
-        recyclerView.setVisibility(View.VISIBLE);
-        emptyView.setVisibility(View.GONE);
-    }
-
-    private List<Product> processProductList(DataSnapshot dataSnapshot, String type) {
-        List<Product> productList = new ArrayList<>();
+    private void storeProductList(DataSnapshot dataSnapshot) {
+        productList = new ArrayList<>();
         for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
             Product product = productSnapshot.getValue(Product.class);
             assert product != null;
-            if (validateFilters(product)) {
+            if (product.getCategory().equals(category.getCategory())) {
                 productList.add(product);
             }
         }
-        sortProductList(productList, type);
-        return productList;
+        productsDao.insertProductList(productList);
     }
 
-    private List<Product> processProductList(List<Product> rawProductList, String type) {
-        if (rawProductList.isEmpty()) {
-            return rawProductList;
+    private void renderProductList() {
+        List<Product> processedProductList = processProductList();
+        productListAdapter.setData(processedProductList);
+        if (processedProductList.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+            return;
         }
-        List<Product> productList = new ArrayList<>();
-        for (Product product : rawProductList) {
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyView.setVisibility(View.GONE);
+        restoreViewState();
+    }
+
+    private List<Product> processProductList() {
+        if (productList == null || productList.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<Product> processedProductList = new ArrayList<>();
+        for (Product product : productList) {
             if (validateFilters(product)) {
-                productList.add(product);
+                processedProductList.add(product);
             }
         }
-        sortProductList(productList, type);
-        return productList;
+        sortProductList(processedProductList);
+        return processedProductList;
     }
 
     private void sortProductListView(String type) {
-        Query query;
-        switch (type) {
-            case SORT_TYPE_LOWEST_PRICE:
-                query = databaseReference.orderByChild("price").limitToFirst(20);
-                fetchData(query, null);
-                break;
-            case SORT_TYPE_HIGHEST_PRICE:
-                query = databaseReference.orderByChild("price").limitToLast(20);
-                fetchData(query, SORT_TYPE_HIGHEST_PRICE);
-                break;
-            case SORT_TYPE_NEWEST:
-                query = databaseReference.orderByChild("insertionDate").limitToFirst(20);
-                fetchData(query, SORT_TYPE_NEWEST);
-                break;
-        }
+        sortType = type;
+        renderProductList();
     }
 
-    private void sortProductList(List<Product> productList, final String type) {
-        if (type == null) {
+    private void sortProductList(List<Product> processedProductList) {
+        if (sortType == null) {
             return;
         }
-        Collections.sort(productList, new Comparator<Product>() {
+        @SuppressLint("SimpleDateFormat")
+        final SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Collections.sort(processedProductList, new Comparator<Product>() {
             public int compare(Product one, Product other) {
-                if (type.equals(SORT_TYPE_HIGHEST_PRICE)) {
-                    return Float.compare(other.getPrice(), one.getPrice());
-                }
-                return other.getInsertionDate().compareTo(one.getInsertionDate());
+                return compareProducts(one, other, format);
             }
         });
+        sortType = null;
+    }
+
+    private int compareProducts(Product one, Product other, SimpleDateFormat format) {
+        switch (sortType) {
+            case SORT_TYPE_LOWEST_PRICE:
+                return Float.compare(one.getPrice(), other.getPrice());
+            case SORT_TYPE_HIGHEST_PRICE:
+                return Float.compare(other.getPrice(), one.getPrice());
+            default:
+                try {
+                    return format.parse(other.getInsertionDate()).compareTo(format.parse(one.getInsertionDate()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    return 0;
+                }
+        }
     }
 
     private void resetSortActions() {
@@ -486,7 +525,7 @@ public class ProductListActivity extends AppCompatActivity {
                 newestCheckBox.isChecked();
         if (!someIsChecked) {
             Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
-            fetchData(query, null);
+            fetchData(query);
         }
     }
 
@@ -541,6 +580,13 @@ public class ProductListActivity extends AppCompatActivity {
             return getResources().getInteger(R.integer.grid_view_landscape_column_number);
         }
         return getResources().getInteger(R.integer.grid_view_portrait_column_number);
+    }
+
+    public void restoreViewState() {
+        if (savedInstanceState != null) {
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(SAVED_LAYOUT_MANAGER_KEY);
+            recyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
     }
 
 }

@@ -82,12 +82,14 @@
         <TextView
             android:id="@+id/product_details_title"
             style="@style/Medium.Content.Text"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/size_zero"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="@dimen/size_l"
             android:layout_marginTop="@dimen/size"
             app:layout_constraintBottom_toBottomOf="@+id/product_details_title_separator"
+            app:layout_constraintEnd_toStartOf="@+id/product_details_add_to_shopping_cart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_details_price_separator" />
 

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -59,11 +60,19 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
     MenuItem signMenuItem;
 
+    private static final String SAVED_LAYOUT_MANAGER_KEY = "saved_layout_manager";
+
     DatabaseReference databaseReference;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
     private boolean isLoggedIn = false;
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(SAVED_LAYOUT_MANAGER_KEY, recyclerView.getLayoutManager().onSaveInstanceState());
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +81,7 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         applyConfiguration();
         registerEventHandlers();
+        restoreViewState(savedInstanceState);
     }
 
     @Override
@@ -266,4 +276,12 @@ public class MainActivity extends AppCompatActivity
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
+
+    public void restoreViewState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(SAVED_LAYOUT_MANAGER_KEY);
+            recyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
+    }
+
 }

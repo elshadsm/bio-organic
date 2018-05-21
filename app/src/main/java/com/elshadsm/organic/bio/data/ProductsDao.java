@@ -101,9 +101,11 @@ public class ProductsDao {
 
     public void insertProductList(List<Product> productList) {
         for (Product product : productList) {
-            if (!isProductExist(product)) {
-                insertProduct(product);
+            if (isProductExist(product)) {
+                removeReviews(product);
+                removeProduct(product);
             }
+            insertProduct(product);
         }
     }
 
@@ -126,7 +128,7 @@ public class ProductsDao {
         contentResolver.insert(DatabaseContract.ProductEntry.CONTENT_URI, contentValues);
     }
 
-    public void insertReview(Review review, Product product) {
+    private void insertReview(Review review, Product product) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseContract.ReviewEntry.COLUMN_REVIEW_ID, review.getId());
         contentValues.put(DatabaseContract.ReviewEntry.COLUMN_DATE, review.getDate());
@@ -195,6 +197,18 @@ public class ProductsDao {
             }
         }
         return false;
+    }
+
+    private void removeProduct(Product product) {
+        String selection = DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID + "=?";
+        String[] selectionArgs = {String.valueOf(product.getId())};
+        contentResolver.delete(DatabaseContract.ProductEntry.CONTENT_URI, selection, selectionArgs);
+    }
+
+    private void removeReviews(Product product) {
+        String selection = DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID + "=?";
+        String[] selectionArgs = {String.valueOf(product.getId())};
+        contentResolver.delete(DatabaseContract.ReviewEntry.CONTENT_URI, selection, selectionArgs);
     }
 
     private String[] getProductProjection() {

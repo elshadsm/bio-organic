@@ -15,8 +15,6 @@
     <dimen name="activity_account_header_text_horizontal_margin">10dp</dimen>
     <dimen name="activity_account_image_size">76dp</dimen>
     <dimen name="product_details_image_height">250dp</dimen>
-    <dimen name="lowest_price_check_box_margin_top">128dp</dimen>
-    <dimen name="filter_amount_label_margin_top">128dp</dimen>
     <dimen name="filter_from_amount_input_with">156dp</dimen>
     <dimen name="filter_amount_divider_margin_top">30dp</dimen>
     <dimen name="category_view_height">200dp</dimen>

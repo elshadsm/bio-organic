@@ -124,7 +124,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         title.setText(product.getTitle());
         addShoppingCart.setImageResource(productsDao.isProductExistInShoppingCart(product) ?
                 R.drawable.ic_remove_from_shopping_cart : R.drawable.ic_add_to_shopping_cart);
-        description.setText(product.getDescription());
+        String descriptionText = product.getDescription().replace("&nl", "\n");
+        description.setText(descriptionText);
         setReviews();
     }
 

@@ -3,12 +3,14 @@ package com.elshadsm.organic.bio.activities;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -28,15 +30,24 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
     @BindView(R.id.product_search_toolbar)
     Toolbar toolbar;
 
+    private static final String SEARCH_VIEW_QUERY_KEY = "query_key";
+
     ProductSearchAdapter productSearchAdapter;
     SearchView searchView;
+    private CharSequence savedQuery;
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putCharSequence(SEARCH_VIEW_QUERY_KEY, searchView.getQuery());
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_search);
         ButterKnife.bind(this);
-        applyConfiguration();
+        applyConfiguration(savedInstanceState);
     }
 
     @Override
@@ -49,6 +60,11 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setIconified(false);
         registerSearchViewEventHandlers();
+        if (!TextUtils.isEmpty(savedQuery)) {
+            searchView.setQuery(savedQuery, false);
+            productSearchAdapter.setInitialQuery(savedQuery.toString());
+            savedQuery = "";
+        }
         return true;
     }
 
@@ -72,7 +88,7 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
         finish();
     }
 
-    private void applyConfiguration() {
+    private void applyConfiguration(Bundle savedInstanceState) {
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -80,6 +96,9 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(productSearchAdapter);
+        if (savedInstanceState != null) {
+            savedQuery = savedInstanceState.getCharSequence(SEARCH_VIEW_QUERY_KEY, "");
+        }
     }
 
     private void registerSearchViewEventHandlers() {
@@ -103,4 +122,5 @@ public class ProductSearchActivity extends AppCompatActivity implements ProductS
             }
         });
     }
+
 }

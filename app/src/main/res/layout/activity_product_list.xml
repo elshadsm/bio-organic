@@ -155,12 +155,15 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/sort_action_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/size_zero"
         android:layout_alignParentBottom="true"
         android:background="@color/action_dropdown_background"
         android:orientation="vertical"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_list_app_bar_layout">
 
         <Button
             android:id="@+id/sort_action_close_button"
@@ -181,7 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/size_l"
             android:layout_marginStart="@dimen/size_l"
-            android:layout_marginTop="@dimen/lowest_price_check_box_margin_top"
+            android:layout_marginTop="@dimen/size_l"
             android:text="@string/the_lowest_price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -244,21 +247,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newest_check_box" />
 
-
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/filter_action_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/size_zero"
         android:layout_alignParentBottom="true"
         android:background="@color/action_dropdown_background"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_list_app_bar_layout">
 
         <Button
             android:id="@+id/filter_action_close_button"
@@ -292,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_l"
-            android:layout_marginTop="@dimen/filter_amount_label_margin_top"
+            android:layout_marginTop="@dimen/size_l"
             android:text="@string/amount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

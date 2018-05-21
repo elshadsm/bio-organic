@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,8 @@ import static com.elshadsm.organic.bio.models.Constants.*;
 
 public class AccountRegistrationActivity extends AppCompatActivity {
 
+    @BindView(R.id.account_registration_scroll_view)
+    ScrollView scrollView;
     @BindView(R.id.name_input)
     EditText nameInput;
     @BindView(R.id.name_message)
@@ -77,8 +80,15 @@ public class AccountRegistrationActivity extends AppCompatActivity {
 
     private static int RESULT_LOAD_IMAGE = 1;
     private static final int REQUEST_PERMISSION_READ_EXTERNAL_STORAGE = 2;
+    private static final String SCROLL_POSITION_KEY = "scroll_position_key";
 
     private Bitmap bitmapImage;
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putIntArray(SCROLL_POSITION_KEY, new int[]{scrollView.getScrollX(), scrollView.getScrollY()});
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +96,7 @@ public class AccountRegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_registration);
         ButterKnife.bind(this);
         registerEventHandlers();
+        restoreViewState(savedInstanceState);
     }
 
     @Override
@@ -316,6 +327,21 @@ public class AccountRegistrationActivity extends AppCompatActivity {
         dialog.setMessage(getResources().getString(R.string.please_wait_message));
         dialog.show();
         return dialog;
+    }
+
+    public void restoreViewState(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            return;
+        }
+        final int[] position = savedInstanceState.getIntArray(SCROLL_POSITION_KEY);
+        if (position == null) {
+            return;
+        }
+        scrollView.post(new Runnable() {
+            public void run() {
+                scrollView.scrollTo(position[0], position[1]);
+            }
+        });
     }
 
 }

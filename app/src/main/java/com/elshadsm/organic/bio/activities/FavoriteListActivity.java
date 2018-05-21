@@ -2,6 +2,8 @@ package com.elshadsm.organic.bio.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,8 +34,16 @@ public class FavoriteListActivity extends AppCompatActivity {
     @BindView(R.id.favorite_list_empty_view)
     TextView emptyView;
 
+    private static final String SAVED_LAYOUT_MANAGER_KEY = "saved_layout_manager";
+
     private FavoriteListAdapter favoriteListAdapter;
     private List<Product> productList = new ArrayList<>();
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(SAVED_LAYOUT_MANAGER_KEY, recyclerView.getLayoutManager().onSaveInstanceState());
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,7 @@ public class FavoriteListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_list);
         ButterKnife.bind(this);
         applyConfiguration();
+        restoreViewState(savedInstanceState);
     }
 
     @Override
@@ -152,5 +163,12 @@ public class FavoriteListActivity extends AppCompatActivity {
                 DatabaseContract.ReviewEntry.COLUMN_FULL_NAME,
                 DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID
         };
+    }
+
+    public void restoreViewState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(SAVED_LAYOUT_MANAGER_KEY);
+            recyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
     }
 }
