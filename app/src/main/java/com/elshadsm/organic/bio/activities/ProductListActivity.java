@@ -104,6 +104,7 @@ public class ProductListActivity extends AppCompatActivity {
     private final String SORT_TYPE_LOWEST_PRICE = "lowest-price";
     private final String SORT_TYPE_HIGHEST_PRICE = "highest-price";
     private final String SORT_TYPE_NEWEST = "newest";
+    private final String SORT_TYPE_DEFAULT = "default";
 
     private final String ORIENTATION_TYPE_GRID = "grid";
     private final String ORIENTATION_TYPE_LINEAR = "linear";
@@ -117,7 +118,6 @@ public class ProductListActivity extends AppCompatActivity {
     private static final String ORIENTATION_ACTION_VISIBLE_KEY = "orientation_action_visible";
 
     List<Product> productList;
-    private String sortType;
     private Bundle savedInstanceState;
 
     @Override
@@ -140,9 +140,14 @@ public class ProductListActivity extends AppCompatActivity {
         registerActionEventHandlers();
         registerSortActionEventHandlers();
         registerFilterActionEventHandlers();
-        initData();
         applyActionBarConfiguration();
         applySavedInstanceState();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
     }
 
     private void applySavedInstanceState() {
@@ -235,7 +240,7 @@ public class ProductListActivity extends AppCompatActivity {
                 if (lowestPriceCheckBox.isChecked()) {
                     highestPriceCheckBox.setChecked(false);
                     newestCheckBox.setChecked(false);
-                    sortProductListView(SORT_TYPE_LOWEST_PRICE);
+                    renderProductList();
                     closeSortActionView();
                     return;
                 }
@@ -248,7 +253,7 @@ public class ProductListActivity extends AppCompatActivity {
                 if (highestPriceCheckBox.isChecked()) {
                     lowestPriceCheckBox.setChecked(false);
                     newestCheckBox.setChecked(false);
-                    sortProductListView(SORT_TYPE_HIGHEST_PRICE);
+                    renderProductList();
                     closeSortActionView();
                     return;
                 }
@@ -261,7 +266,7 @@ public class ProductListActivity extends AppCompatActivity {
                 if (newestCheckBox.isChecked()) {
                     highestPriceCheckBox.setChecked(false);
                     lowestPriceCheckBox.setChecked(false);
-                    sortProductListView(SORT_TYPE_NEWEST);
+                    renderProductList();
                     closeSortActionView();
                     return;
                 }
@@ -484,15 +489,7 @@ public class ProductListActivity extends AppCompatActivity {
         return processedProductList;
     }
 
-    private void sortProductListView(String type) {
-        sortType = type;
-        renderProductList();
-    }
-
     private void sortProductList(List<Product> processedProductList) {
-        if (sortType == null) {
-            return;
-        }
         @SuppressLint("SimpleDateFormat")
         final SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Collections.sort(processedProductList, new Comparator<Product>() {
@@ -500,11 +497,10 @@ public class ProductListActivity extends AppCompatActivity {
                 return compareProducts(one, other, format);
             }
         });
-        sortType = null;
     }
 
     private int compareProducts(Product one, Product other, SimpleDateFormat format) {
-        switch (sortType) {
+        switch (getSortType()) {
             case SORT_TYPE_LOWEST_PRICE:
                 return Float.compare(one.getPrice(), other.getPrice());
             case SORT_TYPE_HIGHEST_PRICE:
@@ -587,6 +583,19 @@ public class ProductListActivity extends AppCompatActivity {
             Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(SAVED_LAYOUT_MANAGER_KEY);
             recyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
         }
+    }
+
+    private String getSortType() {
+        if (lowestPriceCheckBox.isChecked()) {
+            return SORT_TYPE_LOWEST_PRICE;
+        }
+        if (highestPriceCheckBox.isChecked()) {
+            return SORT_TYPE_HIGHEST_PRICE;
+        }
+        if (newestCheckBox.isChecked()) {
+            return SORT_TYPE_NEWEST;
+        }
+        return SORT_TYPE_DEFAULT;
     }
 
 }
