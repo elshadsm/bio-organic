@@ -35,6 +35,13 @@ This program is especially designed for adolescents and older people. Some of th
 <img src="https://user-images.githubusercontent.com/13982125/40349343-6a108830-5db7-11e8-823b-2a11486052f2.png"  width="206" height="417">
 </p>
 
+## Note:
+
+The app gets data from the backend firebase real-time database. However, in case of not sharing sensitive data like API key and etc, I have extracted the data to the `mock-data.json` file. To be able to test the app you should import the file into your own firebase account and then connect the app to it.
+
+## Attention!
+The data inside `mock-data.json` file is fake and is aimed to use only for test usage and only for Udacity reviewers. It is not allowed to use the these data in anywhere else!
+
 
 ## Author
 **Elshad Seyidmammadov** (https://www.linkedin.com/in/elshadsm)
