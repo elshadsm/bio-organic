@@ -32,7 +32,7 @@ This program is especially designed for adolescents and older people. Some of th
 <img src="https://user-images.githubusercontent.com/13982125/40349302-483425fa-5db7-11e8-9a65-e0e8df2ea78a.png"  width="206" height="417">
 <img src="https://user-images.githubusercontent.com/13982125/40349314-54319acc-5db7-11e8-910c-2e0bed3b6785.png"  width="206" height="417">
 <img src="https://user-images.githubusercontent.com/13982125/40349329-60555d8e-5db7-11e8-88ed-81fece02e96f.png"  width="206" height="417">
-<img src="https://user-images.githubusercontent.com/13982125/40418469-8bac52b2-5e93-11e8-875d-24df3de41bce.jpg"  width="206" height="417">
+<img src="https://user-images.githubusercontent.com/13982125/40418589-d832c4d6-5e93-11e8-860d-56d48db32e26.png"  width="206" height="417">
 </p>
 
 ## Note:
