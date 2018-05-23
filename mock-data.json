@@ -98,9 +98,9 @@
     },
     "product_id_13" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Fenugreek porridge, called medeeda hilba in Arabic, is a thick porridge the consistency of custard made using fenugreek seeds. It consists of fenugreek seeds fried in oil, then boiled in water, milk, sugar and athrun- a type of rock salt. Fenugreek seeds has many medicinal properties. Our ancestors learned that it can calm a troubled stomach, and soothe aches and pains. Most importantly, our grandmothers and aunties would make this special porridge for “kerijo”, a term for lactating mother of a newborn, to stimulate milk production.&nl&nl  Beneficial features:&nl&nl  * Enhances lactation&nl * strengthens uterine contractility&nl * increases the breasts in women and gives roundness to the thighs&nl * enhances sexual attraction&nl * reduces pain with menstruation&nl normalizes the hormonal background&nl * antipyretic&nl * expectorant&nl * carminative&nl * lowers cholesterol&nl * lowers the sugar level&nl * stimulates the work of the heart&nl",
       "id" : 13,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/hilba.jpg?alt=media&token=860eaa1a-4239-410c-a583-481bef3847d9",
       "insertionDate" : "03-05-2018 12:11:10",
       "name" : "Hilba",
       "price" : 5,
@@ -115,15 +115,15 @@
         }
       },
       "status" : "available in stock",
-      "title" : "A Wonderful Drink and Herbal Medicine"
+      "title" : "A Wonderful Winter Drink and Herbal Medicine"
     },
     "product_id_14" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Kyst al Hindi &nl&nl Beneficial features:&nl * analgesic action&nl * carminative (eliminates gases) diuretic&nl * powerful regenerative effect&nl * Tones up&nl * antiseptic&nl * relax the moderately musculature of the bronchi antiallergic effect&nl * antipyretic&nl * antibacterial&nl * antihelminthic&nl * improves blood circulation&nl * promotes build-up of tiny masses&nl * increases sexual attraction&nl * normalizes the hormonal background&nl * calming&nl * Eliminates excess fat and slag&nl",
       "id" : 14,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Ud-hindi",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/kyst-al-hindi.jpg?alt=media&token=494b51a8-b9a5-42e7-a99d-c95b3a454f6c",
+      "insertionDate" : "02-03-2018 12:11:10",
+      "name" : "Kyst al Hindi",
       "price" : 3,
       "quantity" : "250 qr",
       "rating" : 4.5,
@@ -136,15 +136,15 @@
         }
       },
       "status" : "available in stock",
-      "title" : "A Wonderful antibiotik"
+      "title" : "A Wonderful natural antibiotic"
     },
     "product_id_15" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "There is no death in the world. But the sedan can cure all other illnesses. The sedan in medicine is different. Sedan strengthens the immune system in the human body and causes many diseases to cure. &nl&nl  Ibn Sino said, “Sedan – it corrects the body’s energy and restores the bacteria that have disappeared because of diseases.” Tablets use sediments and oils. It contains essential ingredients for the body. It contains 38% hydrocarbonate, 35% of different fat, 21% albumin (different proteins). The remaining 6% contain more than a hundred useful substances. Because the human body is unable to produce oil, it has to take it from the outside. One gram of sedan can meet the person’s daily fat requirement",
       "id" : 15,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Timin",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/black-cumin.jpg?alt=media&token=83122366-2c6d-4341-bbbd-b39d6dd2492a",
+      "insertionDate" : "01-04-2018 12:11:10",
+      "name" : "Black cumin",
       "price" : 10,
       "quantity" : "250 ml",
       "rating" : 5,
@@ -157,14 +157,14 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Black medicine"
+      "title" : "There is a healing in all of the diseases in the Sedan, except for death"
     },
     "product_id_16" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "This powerful seed is frequently used in Yemen for the treatment of witchcraft eaten or swallowed. It should be used with great caution. &nl&nl  Safety precautions:&nl - Be careful not to take lightly the effects&nl - Do take a seed per dose !!!!!!!!&nl - If necessary renew wait between 1-2 week between each shot !!!&nl  How to use it ?&nl Peel seed and chew it thoroughly before swallowing, then drink a large glass of water just after swallowing the seed to prevent irritation of the throat.&nl This seed, due to its toxicity, causes severe nausea and diarrhea to clean the stomach, it is being used with great caution! Drink one to two glasses of water between vomiting to avoid irritation of the throat and ease of cleaning and vomiting. Wash hands after touching the seed and peel",
       "id" : 16,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "03-05-2018 12:11:10",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/habbat-al-moulouk.jpeg?alt=media&token=4ac2d9a9-2ce2-4877-b38b-e7457e30ce8d",
+      "insertionDate" : "01-05-2017 12:11:10",
       "name" : "Habbat Al Mouluk",
       "price" : 5,
       "quantity" : "100 qr",
@@ -178,18 +178,18 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "NEW Habbat Al Moulouk against witchcraft \"Sihr\" swallowed"
     },
     "product_id_17" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Fennel Seed Whole really isn’t a seed. It looks like a seed. People call it a seed, but it’s actually the fruit of the fennel plant, which is an herb. Whole Fennel Seed is imported from India and is an aromatic herb of the familyApiaceae. Its taste is suggestive of anise, but they shouldn’t be substituted for each other. There are many uses for Fennel Seed Whole in Mediterranean and Indian cuisine especially. The popular fennel flavor is also available in fennel seed cracked, fennel seed ground and fennel seed apothecary oil.",
       "id" : 17,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Shahmerdan",
-      "price" : 35,
-      "quantity" : "250 qr",
-      "rating" : 2.5,
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/fennel-seed.jpg?alt=media&token=e0667873-24fe-4ee7-a004-5af3bcbef52e",
+      "insertionDate" : "02-02-2018 12:11:10",
+      "name" : "Fennel Seed",
+      "price" : 7,
+      "quantity" : "100 qr",
+      "rating" : 3.5,
       "reviews" : {
         "review_id_171" : {
           "date" : "17.04.2018",
@@ -199,17 +199,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Fennel Seed Whole"
     },
     "product_id_18" : {
       "category" : "medication",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "These dried and hard carobs are also known as St. John’s Bread because, according to tradition of some Christians, St. John the Baptist subsisted on them in the wilderness. Carob pods are considered to be a remarkable antidiarrheal. Carob is said to be high in fiber and rich in one class of tannins (polyphenols) that manifest strong antiviral and antiseptic properties.",
       "id" : 18,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Zancafil",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/carob.jpg?alt=media&token=1edfb50c-581e-4712-8d78-c57f51e7b193",
+      "insertionDate" : "01-04-2018 12:11:10",
+      "name" : "Carob",
       "price" : 18,
-      "quantity" : "250 ml",
+      "quantity" : "100 gr",
       "rating" : 1,
       "reviews" : {
         "review_id_181" : {
@@ -220,17 +220,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Amazing Carob"
     },
     "product_id_19" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "While olive oil has been with us for thousands of years, and originates from the Greek island of Crete, olive oil soap is a much more recent invention.  Olive oil was widely used as a skin care product by the ancient Greeks.  Indeed, Homer referred to olive oil as “Liquid Gold”. &nl&nl  While the Greeks have been applying pure olive oil directly to the skin as a both a beauty treatment and to treat wounds, it is widely believe that the first actual olive oil soap emerged from France during the 6th Century.  The soap was made by combining lye with olive oil.",
       "id" : 19,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "03-05-2018 12:11:10",
-      "name" : "Xiyar",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/olive-oil-soap.jpg?alt=media&token=6f863157-6267-491f-b575-e0bdb7dd3470",
+      "insertionDate" : "01-05-2018 12:11:10",
+      "name" : "Olive Oil Soap",
       "price" : 5,
-      "quantity" : "100 qr",
+      "quantity" : "1 item",
       "rating" : 4.8,
       "reviews" : {
         "review_id_191" : {
@@ -241,7 +241,7 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Greek Olive Oil Soap"
     },
     "product_id_2" : {
       "category" : "spices",
@@ -266,12 +266,12 @@
     },
     "product_id_20" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Black Seed Shampoo uses an ancient and powerful ingredient renowned in the Arab world for curing many illnesses. Known as “The Seed of Blessing” in the region, Black Seed adds strength and shine and offers complete protection against damaged, falling and dull hair.&nl&nl  Strong & shine&nl For weak, dull hair&nl Turkish Black Seed&nl",
       "id" : 20,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Bal",
-      "price" : 34,
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/black-seed-shampoo.jpg?alt=media&token=080c69d5-7680-4213-a463-50c48f0d67db",
+      "insertionDate" : "10-05-2018 12:11:10",
+      "name" : "Black Seed Shampoo",
+      "price" : 7.98,
       "quantity" : "250 qr",
       "rating" : 4.5,
       "reviews" : {
@@ -283,16 +283,16 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "BLACK SEED SHAMPOO FOR SHINE AND STRONG HAIR"
     },
     "product_id_21" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "What has Cleopatra got to do with Olive oil? Haven’t you heard about her being the most celebrated beauty of all times with flawless shiny glowing skin and jet black hair?&nl&nl  Well it’s no more a secret now. Among all the other things, Cleopatra used to take an olive oil bath to keep her skin glowing. Hang on there; you don’t need to jump into an olive oil bath to get that flawless skin and shiny hair. There are easier ways to make olive oil work for you: Making it a part of your diet, for instance.&nl&nl  Would you not want to have something in your daily diet that would keep your skin healthy and supple? Several studies have found olive oil to be extremely beneficial for your skin since it is very rich in anti-oxidants, and vitamins A, D, K and E. One of these antioxidants, Hydroxytyrosol is a very rare and extremely potent polyphenol compound found in the highest concentrations in the best olive oils.",
       "id" : 21,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Mal",
-      "price" : 23,
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/olive-oil.jpg?alt=media&token=e3086963-a8ca-4b54-be73-a80d3166df6c",
+      "insertionDate" : "21-05-2018 12:11:10",
+      "name" : "Olive Oil",
+      "price" : 15,
       "quantity" : "250 ml",
       "rating" : 5,
       "reviews" : {
@@ -304,17 +304,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "OLIVE OIL – THE LIQUID GOLD FOR YOUR SKIN"
     },
     "product_id_22" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Almond oil had been used extensively for its health benefits and as a beauty aid much before science caught up with the goodness of this seed oil. Very popular in Southeast Asia and in the Mediterranean region where the Almond tree was first domesticated, the almond kernels and the nutty oil extracted from them were credited with promoting heart and skin health.&nl&nl  Now we know that the oil is rich in Vitamin E, monounsaturated fatty acids, proteins, potassium and zinc, besides a number of other minerals and vitamins, which explains why it is so good for our heart, skin and hair.",
       "id" : 22,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/almond-oil.jpg?alt=media&token=b7e3c339-b33a-4f3f-bb77-1ab66ae9dfa9",
       "insertionDate" : "03-05-2018 12:11:10",
-      "name" : "Qara",
-      "price" : 5,
-      "quantity" : "100 qr",
+      "name" : "Almond Oil",
+      "price" : 23,
+      "quantity" : "200 ml",
       "rating" : 3.8,
       "reviews" : {
         "review_id_221" : {
@@ -325,17 +325,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Sweet Almond Oil For Beautiful Skin & Hair"
     },
     "product_id_23" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Aloe vera gel contains two hormones: Auxin and Gibberellins. These two hormones provide wound healing and anti-inflammatory properties that reduceskin inflammation. … Additionally, in Ayurvedic medicine, Aloe is used to effectively heal chronicskin problems, such as psoriasis, acne and eczema.Moisturize. For a moisturizer that doesn’t leave a greasy film on your face, look no further than Aloe Vera. It softens the skin without clogging pores. Aloe Vera gel canalso be used as an aftershave treatment as it will both hydrate the skin and help heal razor burn and small nicks.Rub on Your Face – Use your hands to apply the aloe vera juice onto your face. Leave it on for about 20 minutes or until it dries. Rinse – Peel the aloe vera mask off of your face and wash your face with water. Pat Dry – Using a clean towel, dry your face and look in the mirror and enjoy the new glow of your skin!Apply over-the-counter aloe vera gel or the gel from a fresh aloe vera plant to yourskin daily. According to the website SkinWhitening.org, aloe vera gel is a highly effective home treatment for hyperpigmentation, with results becoming noticeable within a few months.I’ve personally used aloe with good results. It seems to make acne scars and marks heal faster than they normally would. While this is not a complete solution to getting rid of acne, it is an awesome treatment to help heal acne scars. Note: using aloe on your skin is safe, but DO NOT TAKE ALOE INTERNALLY.ake Aloe vera gel (either store-bought or straight from the plant) on a cotton pad and swipe away before hitting the sack. The antibacterial properties of aloe vera gel are very effective in treating acne and reducing the redness caused by it. It prevents bacteria from infecting acne wounds and accelerates the process of healing. Its antifungal properties are useful in treating inflammation like boils and cysts on the skin.",
       "id" : 23,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Elik",
-      "price" : 22,
-      "quantity" : "250 qr",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/aloe-vera.jpg?alt=media&token=b16f474c-d161-4034-9535-d3a0d4b1a63e",
+      "insertionDate" : "23-05-2018 12:11:10",
+      "name" : "Aloe Vera Gel",
+      "price" : 140,
+      "quantity" : "150 qr",
       "rating" : 2.5,
       "reviews" : {
         "review_id_231" : {
@@ -346,18 +346,18 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Aloe Vera Gel"
     },
     "product_id_24" : {
       "category" : "beauty",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Apple cider vinegar is made by fermenting the sugars from apples which turns them into acetic acid – the active ingredient in vinegar.  In the shops you may see apple cider vinegar labelled as 'filtered' (a clear liquid), or unfiltered and containing something known as ‘mother’. That means there are proteins, enzymes and friendly bacteria present, and they give this type of vinegar a cloudy appearance. &nl&nl  Apple cider vinegar doesn’t really contain any vitamins or minerals, other than a very small amount of potassium, copper and magnesium, and there isn’t enough research at the moment to demonstrate that buying the ‘mother’ variety is any better for you than buying filtered. However, apple cider vinegar does also contain amino acids and antioxidants.",
       "id" : 24,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Abad",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/apple-cider-vinegar.jpg?alt=media&token=d0ea48c7-5c09-4d9d-bbb9-c50a59d7d0a3",
+      "insertionDate" : "25-05-2018 12:11:10",
+      "name" : "Apple Cider Vinegar",
       "price" : 20,
       "quantity" : "250 ml",
-      "rating" : 1,
+      "rating" : 3,
       "reviews" : {
         "review_id_241" : {
           "date" : "23.04.2018",
@@ -367,17 +367,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Apple Cider Vinegar"
     },
     "product_id_25" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "The gel of the aloe plant has a number of healing properties. Not only does it soothe skin burns and cuts, it can also help to monitor the air quality in your home. The plant can help clear the air of pollutants found in chemical cleaning products, and when the amount of harmful chemicals in the air becomes excessive, the plants’ leaves will display brown spots. Just an FYI: It grows best with lots of sun.",
       "id" : 25,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "03-05-2018 12:11:10",
-      "name" : "Aslan",
-      "price" : 5,
-      "quantity" : "100 qr",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/aloe-plant.jpg?alt=media&token=b5bb61a0-f5cd-4519-929f-9dfaac34483a",
+      "insertionDate" : "03-05-2017 12:11:10",
+      "name" : "Aloe Plant",
+      "price" : 25,
+      "quantity" : "1 item",
       "rating" : 4.8,
       "reviews" : {
         "review_id_251" : {
@@ -388,17 +388,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Ve Maecenas Feugiat Ligula Class"
+      "title" : "Wonderful Aloe Plant"
     },
     "product_id_26" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "NASA scientists listed the English ivy as the number one best air-filtering houseplant, as it is the most effective plant when it comes to absorbing formaldehyde. It’s also incredibly easy to grow and adaptable — try it as a hanging or a floor plant. Grow in moderate temperatures and medium sunlight.",
       "id" : 26,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/english-ivy.jpg?alt=media&token=82cddfa7-53aa-4921-af6c-220829a7c3de",
       "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Vashaq",
-      "price" : 3,
-      "quantity" : "250 qr",
+      "name" : "English Ivy",
+      "price" : 23,
+      "quantity" : "1 item",
       "rating" : 4.5,
       "reviews" : {
         "review_id_261" : {
@@ -409,17 +409,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Aliquam felis orci ac cursus est purus rutrum imperdiet per."
+      "title" : "Amazing English Ivy"
     },
     "product_id_27" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "Rubber trees are good for cleaning the air and are one of the easiest plants to grow, as they thrive even in dim lighting and cooler climates. The low-maintenance plant is a powerful toxin eliminator and air purifier.",
       "id" : 27,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Sumqayit",
-      "price" : 10,
-      "quantity" : "250 ml",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/rubber-tree.jpg?alt=media&token=5b1477c2-0198-4325-a61a-58dcd9fc84db",
+      "insertionDate" : "01-01-2018 12:11:10",
+      "name" : "Rubber Tree",
+      "price" : 19,
+      "quantity" : "1 item",
       "rating" : 5,
       "reviews" : {
         "review_id_271" : {
@@ -430,17 +430,17 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Aliquam felis orci ac cursus est purus rutrum imperdiet per."
+      "title" : "Wonderful Rubber Tree"
     },
     "product_id_28" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "The attractive bamboo palm also made NASA’s list of top clean-air plants with a purifying score of 8.4. It’s also particularly effective at clearing out benzene and trichloroethylene. These need to be well-watered, in shade or indirect sunlight.",
       "id" : 28,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "03-05-2018 12:11:10",
-      "name" : "Oghuz",
-      "price" : 5,
-      "quantity" : "100 qr",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/bamboo-palm.jpg?alt=media&token=0b153b55-d7da-4b72-8fe3-dee741ce5f21",
+      "insertionDate" : "03-02-2018 12:11:10",
+      "name" : "Bamboo Palm",
+      "price" : 25,
+      "quantity" : "1 item",
       "rating" : 3.8,
       "reviews" : {
         "review_id_281" : {
@@ -451,18 +451,18 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Aliquam felis orci ac cursus est purus rutrum imperdiet per."
+      "title" : "Amazing Bamboo Palm"
     },
     "product_id_29" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "The heart-shaped philodendron is a popular plant choice for indoor areas, as they’re easy to care for and can grow decorative vines. Like the English ivy, they are particularly good at absorbing xylene. They can also last for many years when properly cared for. Grow with moderate water and some sunlight and they’ll be fine.",
       "id" : 29,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
-      "insertionDate" : "02-05-2018 12:11:10",
-      "name" : "Khachmaz",
-      "price" : 10,
-      "quantity" : "250 qr",
-      "rating" : 2.5,
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/philodendron.jpg?alt=media&token=98213e44-5313-47ea-986d-e749e92700be",
+      "insertionDate" : "02-06-2018 12:11:10",
+      "name" : "Philodendron",
+      "price" : 100,
+      "quantity" : "1 item",
+      "rating" : 5,
       "reviews" : {
         "review_id_291" : {
           "date" : "17.04.2018",
@@ -472,7 +472,7 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Aliquam felis orci ac cursus est purus rutrum imperdiet per."
+      "title" : "Beautiful Philodendron"
     },
     "product_id_3" : {
       "category" : "spices",
@@ -503,13 +503,13 @@
     },
     "product_id_30" : {
       "category" : "home",
-      "description" : "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Litora vitae nibh egestas aenean parturient nascetur nonummy gravida nisi in quis magnis et cras ac. Ante ultrices scelerisque lectus netus augue dignissim. Est etiam viverra non vulputate faucibus lorem mus integer. Metus tempus malesuada ornare consequat. Cum. Per ut magna. Consectetuer parturient ipsum porttitor ridiculus donec enim nec montes. Convallis dui varius mollis nibh semper cum habitasse massa etiam. &nl&nl  Sed massa sociis phasellus dui vulputate cum tempor sit ligula eu tempor sagittis congue aliquet. Mattis mattis suspendisse amet congue id natoque. Posuere nostra parturient ullamcorper. Aenean mi blandit vitae parturient taciti. Nullam aliquam massa habitant euismod natoque neque.",
+      "description" : "One of the most common house plants, spider plants are decorative, easy to grow, and also make the NASA list of the best air-purifying plants. Spider plants are effective at fighting pollutants including benzene, formaldehyde, carbon monoxide and xylene.",
       "id" : 30,
-      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/test_image.jpg?alt=media&token=32877154-7d8e-407c-8025-a3fe4d7ebe16",
+      "imageSrc" : "https://firebasestorage.googleapis.com/v0/b/bio-organic.appspot.com/o/spider-plant.jpg?alt=media&token=731f8cb9-66de-4367-be97-bcb4203512a9",
       "insertionDate" : "01-05-2018 12:11:10",
-      "name" : "Timin",
+      "name" : "Spider Plant",
       "price" : 20,
-      "quantity" : "250 ml",
+      "quantity" : "1 item",
       "rating" : 1,
       "reviews" : {
         "review_id_301" : {
@@ -520,7 +520,7 @@
         }
       },
       "status" : "available in stock",
-      "title" : "Aliquam felis orci ac cursus est purus rutrum imperdiet per."
+      "title" : "Spider Plant"
     },
     "product_id_31" : {
       "category" : "others",
