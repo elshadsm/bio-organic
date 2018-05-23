@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.FavoriteListAdapter;
 import com.elshadsm.organic.bio.data.DatabaseContract;
+import com.elshadsm.organic.bio.data.ProductsDao;
 import com.elshadsm.organic.bio.models.Product;
 import com.elshadsm.organic.bio.models.Review;
 
@@ -36,8 +37,8 @@ public class FavoriteListActivity extends AppCompatActivity {
 
     private static final String SAVED_LAYOUT_MANAGER_KEY = "saved_layout_manager";
 
+    private ProductsDao productsDao;
     private FavoriteListAdapter favoriteListAdapter;
-    private List<Product> productList = new ArrayList<>();
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -57,7 +58,7 @@ public class FavoriteListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchProducts();
+        List<Product> productList = productsDao.getFavoriteProducts();
         favoriteListAdapter.setData(productList);
         if (productList.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
@@ -98,71 +99,11 @@ public class FavoriteListActivity extends AppCompatActivity {
     private void applyConfiguration() {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        productsDao = new ProductsDao(getContentResolver());
         favoriteListAdapter = new FavoriteListAdapter();
         recyclerView.setAdapter(favoriteListAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-    }
-
-    private void fetchProducts() {
-        productList = new ArrayList<>();
-        try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.ProductsInFavoriteListEntry.CONTENT_URI,
-                null, null, null, null)) {
-            if (cursor == null || cursor.getCount() == 0) {
-                return;
-            }
-            cursor.moveToFirst();
-            Product product;
-            do {
-                product = new Product();
-                product.setId(cursor.getLong(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID)));
-                product.setCategory(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_CATEGORY)));
-                product.setDescription(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION)));
-                product.setImageSrc(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC)));
-                product.setName(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_NAME)));
-                product.setPrice(cursor.getFloat(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_PRICE)));
-                product.setQuantity(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_QUANTITY)));
-                product.setRating(cursor.getFloat(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_RATING)));
-                product.setStatus(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_STATUS)));
-                product.setTitle(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_TITLE)));
-                product.setReviews(fetchReviews(product.getId()));
-                productList.add(product);
-            } while (cursor.moveToNext());
-        }
-    }
-
-    private Map<String, Review> fetchReviews(long productId) {
-        Map<String, Review> reviewsMap = new HashMap<>();
-        String selection = DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID + "=?";
-        String[] selectionArgs = {String.valueOf(productId)};
-        try (Cursor cursor = getContentResolver().query(
-                DatabaseContract.ReviewEntry.CONTENT_URI, getReviewsProjection(), selection, selectionArgs, null)) {
-            if (cursor == null || cursor.getCount() == 0) {
-                return reviewsMap;
-            }
-            cursor.moveToFirst();
-            Review review;
-            do {
-                review = new Review();
-                review.setId(cursor.getLong(cursor.getColumnIndex(DatabaseContract.ReviewEntry.COLUMN_REVIEW_ID)));
-                review.setDate(cursor.getString(cursor.getColumnIndex(DatabaseContract.ReviewEntry.COLUMN_DATE)));
-                review.setReview(cursor.getString(cursor.getColumnIndex(DatabaseContract.ReviewEntry.COLUMN_REVIEW)));
-                review.setFullName(cursor.getString(cursor.getColumnIndex(DatabaseContract.ReviewEntry.COLUMN_FULL_NAME)));
-                reviewsMap.put(String.valueOf(review.getId()), review);
-            } while (cursor.moveToNext());
-        }
-        return reviewsMap;
-    }
-
-    private String[] getReviewsProjection() {
-        return new String[]{
-                DatabaseContract.ReviewEntry.COLUMN_REVIEW_ID,
-                DatabaseContract.ReviewEntry.COLUMN_DATE,
-                DatabaseContract.ReviewEntry.COLUMN_REVIEW,
-                DatabaseContract.ReviewEntry.COLUMN_FULL_NAME,
-                DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID
-        };
     }
 
     public void restoreViewState(Bundle savedInstanceState) {

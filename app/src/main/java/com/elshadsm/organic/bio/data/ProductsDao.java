@@ -76,6 +76,35 @@ public class ProductsDao {
         return productList;
     }
 
+    public List<Product> getFavoriteProducts() {
+        List<Product> productList = new ArrayList<>();
+        try (Cursor cursor = contentResolver.query(
+                DatabaseContract.ProductsInFavoriteListEntry.CONTENT_URI,
+                null, null, null, null)) {
+            if (cursor == null || cursor.getCount() == 0) {
+                return productList;
+            }
+            cursor.moveToFirst();
+            Product product;
+            do {
+                product = new Product();
+                product.setId(cursor.getLong(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_PRODUCT_ID)));
+                product.setCategory(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_CATEGORY)));
+                product.setDescription(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_DESCRIPTION)));
+                product.setImageSrc(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_IMAGE_SRC)));
+                product.setName(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_NAME)));
+                product.setPrice(cursor.getFloat(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_PRICE)));
+                product.setQuantity(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_QUANTITY)));
+                product.setRating(cursor.getFloat(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_RATING)));
+                product.setStatus(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_STATUS)));
+                product.setTitle(cursor.getString(cursor.getColumnIndex(DatabaseContract.ProductEntry.COLUMN_TITLE)));
+                product.setReviews(getReviewMap(product.getId()));
+                productList.add(product);
+            } while (cursor.moveToNext());
+        }
+        return productList;
+    }
+
     private Map<String, Review> getReviewMap(long productId) {
         Map<String, Review> reviewsMap = new HashMap<>();
         String selection = DatabaseContract.ReviewEntry.COLUMN_PRODUCT_ID + "=?";

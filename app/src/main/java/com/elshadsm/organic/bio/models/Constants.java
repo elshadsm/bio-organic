@@ -26,5 +26,8 @@ public class Constants {
     public static final String CATEGORY_HOME = "home";
     public static final String CATEGORY_OTHERS = "others";
 
+    public static final String WIDGET_EXTRA_NAME_INGREDIENT_FAVORITES = "widget_extra_favorites";
+    public static final String WIDGET_EXTRA_NAME_INGREDIENT_PRICES = "widget_extra_prices";
+
     public static final String USER_PROFILE_IMAGE_FILE = "profile.jpg";
 }

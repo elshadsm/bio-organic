@@ -24,8 +24,9 @@
     <dimen name="product_list_item_image_height">204dp</dimen>
     <dimen name="product_list_view_item_height">88dp</dimen>
     <dimen name="product_list_view_image_size">72dp</dimen>
-    <dimen name="widget_height">300dp</dimen>
-    <dimen name="widget_width">60dp</dimen>
+    <dimen name="widget_height">208dp</dimen>
+    <dimen name="widget_width">256dp</dimen>
+    <dimen name="widget_empty_message_top_padding">140dp</dimen>
 
     <dimen name="product_list_action_text_size">18sp</dimen>
 
@@ -46,7 +47,7 @@
     <integer name="rating_bar_num_starts">5</integer>
     <integer name="form_input_ems">10</integer>
     <integer name="action_search_order_in_category">100</integer>
-    <integer name="widget_update_period_millis">1800000</integer>
+    <integer name="widget_update_period_millis">300000</integer>
 
     <item name="rating_bar_step_size" format="float" type="dimen">0.5</item>
 </resources>
