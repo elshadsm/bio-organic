@@ -1,7 +1,6 @@
 package com.elshadsm.organic.bio.activities;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -15,15 +14,10 @@ import android.widget.TextView;
 
 import com.elshadsm.organic.bio.R;
 import com.elshadsm.organic.bio.adapters.FavoriteListAdapter;
-import com.elshadsm.organic.bio.data.DatabaseContract;
 import com.elshadsm.organic.bio.data.ProductsDao;
 import com.elshadsm.organic.bio.models.Product;
-import com.elshadsm.organic.bio.models.Review;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
