@@ -67,23 +67,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.AccountActivity"
+        <activity
+            android:name=".activities.AccountActivity"
             android:label="@string/title_activity_account"
             android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
-        <receiver android:name=".widgets.BioOrganicWidgetProvider" >
+
+        <receiver android:name=".widgets.BioOrganicWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider"
+            <meta-data
+                android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info" />
         </receiver>
         <service
             android:name=".widgets.ListRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
-
 </manifest>

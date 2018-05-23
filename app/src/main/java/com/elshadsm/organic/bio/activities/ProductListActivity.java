@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -40,6 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.ref.WeakReference;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -115,6 +117,9 @@ public class ProductListActivity extends AppCompatActivity {
     private static final String SORT_ACTION_VISIBLE_KEY = "sort_action_visible";
     private static final String FILTER_ACTION_VISIBLE_KEY = "filter_action_visible";
     private static final String ORIENTATION_ACTION_VISIBLE_KEY = "orientation_action_visible";
+
+    private static final String ASYNC_TASK_GET_PRODUCTS_TYPE = "get_products";
+    private static final String ASYNC_TASK_INSERT_PRODUCTS_TYPE = "insert_products";
 
     List<Product> productList;
     private Bundle savedInstanceState;
@@ -419,8 +424,7 @@ public class ProductListActivity extends AppCompatActivity {
         if (productList != null) {
             return;
         }
-        productList = productsDao.getProductList(category.getCategory());
-        renderProductList();
+        new AsyncTaskRunner(this).execute(ASYNC_TASK_GET_PRODUCTS_TYPE);
         Query query = databaseReference.orderByChild(FIREBASE_PRODUCTS_CATEGORY_COLUMN);
         fetchData(query);
     }
@@ -458,7 +462,7 @@ public class ProductListActivity extends AppCompatActivity {
                 productList.add(product);
             }
         }
-        productsDao.insertProductList(productList);
+        new AsyncTaskRunner(this).execute(ASYNC_TASK_INSERT_PRODUCTS_TYPE);
     }
 
     private void renderProductList() {
@@ -489,8 +493,7 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void sortProductList(List<Product> processedProductList) {
-        @SuppressLint("SimpleDateFormat")
-        final SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") final SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Collections.sort(processedProductList, new Comparator<Product>() {
             public int compare(Product one, Product other) {
                 return compareProducts(one, other, format);
@@ -595,6 +598,36 @@ public class ProductListActivity extends AppCompatActivity {
             return SORT_TYPE_NEWEST;
         }
         return SORT_TYPE_DEFAULT;
+    }
+
+    private static class AsyncTaskRunner extends AsyncTask<String, String, String> {
+
+        private WeakReference<ProductListActivity> activityReference;
+
+        AsyncTaskRunner(ProductListActivity context) {
+            activityReference = new WeakReference<>(context);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            ProductListActivity activity = activityReference.get();
+            String type = strings[0];
+            if (type.equals(ASYNC_TASK_GET_PRODUCTS_TYPE)) {
+                activity.productList = activity.productsDao.getProductList(activity.category.getCategory());
+            } else if (type.equals(ASYNC_TASK_INSERT_PRODUCTS_TYPE)) {
+                activity.productsDao.insertProductList(activity.productList);
+            }
+            return type;
+        }
+
+        @Override
+        protected void onPostExecute(String type) {
+            ProductListActivity activity = activityReference.get();
+            super.onPostExecute(type);
+            if (type.equals(ASYNC_TASK_GET_PRODUCTS_TYPE)) {
+                activity.renderProductList();
+            }
+        }
     }
 
 }
